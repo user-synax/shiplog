@@ -5,6 +5,7 @@ import { getDefaultAvatarUrl } from "@/lib/utils";
 import ActivityHeatmap from "./ActivityHeatmap";
 import ThemeProvider from "@/components/ThemeProvider";
 import StackIcon from "tech-stack-icons";
+import Link from "next/link";
 
 // Curated Tech Icon Library
 const TECH_ICONS = [
@@ -959,9 +960,12 @@ export default function PublicProfileClient({
                                 {pinnedProjects.map((project) => (
                                     <div
                                         key={project._id}
-                                        className="rounded-xl p-4"
+                                        className="rounded-xl p-4 border"
                                         style={{
                                             backgroundColor: theme.cardColor,
+                                            borderColor: theme.borderColor,
+                                            borderStyle: "solid",
+                                            borderWidth: 1,
                                         }}
                                     >
                                         <h4
@@ -984,27 +988,24 @@ export default function PublicProfileClient({
                                         )}
                                         <div className="flex gap-2">
                                             {project.demoUrl && (
-                                                <a
+                                                <Link
                                                     href={project.demoUrl}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="text-sm"
+                                                    className="text-sm px-3 py-2 rounded-lg border-2"
                                                     style={{
-                                                        color: theme.borderColor,
+                                                        borderColor: theme.borderColor
                                                     }}
                                                 >
                                                     Demo
-                                                </a>
+                                                </Link>
                                             )}
                                             {project.repoUrl && (
                                                 <a
                                                     href={project.repoUrl}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="text-sm"
-                                                    style={{
-                                                        color: theme.borderColor,
-                                                    }}
+                                                    className="text-sm px-3 py-2 rounded-lg underline" 
                                                 >
                                                     Repo
                                                 </a>
@@ -1194,18 +1195,8 @@ export default function PublicProfileClient({
                                                 color: theme.textColor,
                                             }}
                                         >
-                                            {log.title}
+                                            {log.content}
                                         </p>
-                                        {log.description && (
-                                            <p
-                                                className="text-sm mt-1"
-                                                style={{
-                                                    color: theme.mutedColor,
-                                                }}
-                                            >
-                                                {log.description}
-                                            </p>
-                                        )}
                                         <p
                                             className="text-xs mt-2"
                                             style={{
