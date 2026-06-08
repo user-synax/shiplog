@@ -1,26 +1,81 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --color-primary: #ffffff;
+    --color-primary-text: #0f0f0f;
+    --color-accent-red: #ff4d4f;
+    --color-canvas: #0f0f0f;
+    --color-surface-1: #1a1a1a;
+    --color-surface-2: #262626;
+    --color-hairline: #333333;
+    --color-hairline-soft: #222222;
+    --color-inverse-canvas: #ffffff;
+    --color-ink: #ffffff;
+    --color-ink-muted: #999999;
+    --color-semantic-success: #4ade80;
+    --color-gradient-violet: #8b5cf6;
+    --color-gradient-magenta: #ec4899;
+    --color-gradient-orange: #f97316;
+    --color-gradient-coral: #f43f5e;
+
+    --font-sans: var(--font-inter);
+    --font-heading: var(--font-plus-jakarta-sans);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+    box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    width: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    background: var(--color-canvas);
+    background-image: var(--bg-pattern);
+    background-size: var(--bg-pattern-size);
+    background-repeat: repeat;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    transition: all 0.3s ease;
+}
+
+.theme-button {
+    background: var(--color-primary);
+    color: var(--color-primary-text);
+    transition: all 0.2s ease;
+}
+
+.theme-button:hover {
+    background: var(--color-primary-hover);
+    box-shadow: var(--color-primary-hover-shadow);
+}
+
+/* Custom Scrollbar Styles */
+.custom-scrollbar::-webkit-scrollbar {
+    height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: var(--color-surface-2);
+    border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--color-hairline);
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--color-ink-muted);
+}
+
+/* Firefox */
+.custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-hairline) var(--color-surface-2);
 }
