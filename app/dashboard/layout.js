@@ -5,19 +5,24 @@ import { usePathname, useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import {
-  Home,
-  Briefcase,
-  FileText,
-  Layers,
-  Trophy,
-  BarChart3,
-  CreditCard,
-  Settings,
-  Menu,
-  X,
-  Shield
+    Home,
+    Briefcase,
+    FileText,
+    Layers,
+    Trophy,
+    BarChart3,
+    CreditCard,
+    Settings,
+    Menu,
+    X,
+    Shield,
 } from "lucide-react";
-import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
+import {
+    Tooltip,
+    TooltipTrigger,
+    TooltipContent,
+    TooltipProvider,
+} from "@/components/ui/tooltip";
 import { getDefaultAvatarUrl } from "@/lib/utils";
 
 const navLinks = [
@@ -25,7 +30,6 @@ const navLinks = [
     { href: "/dashboard/projects", label: "Projects", icon: Briefcase },
     { href: "/dashboard/logs", label: "Build Logs", icon: FileText },
     { href: "/dashboard/stack", label: "Stack & Goals", icon: Layers },
-    { href: "/dashboard/achievements", label: "Achievements", icon: Trophy },
     {
         href: "/dashboard/analytics",
         label: "Analytics",
@@ -158,13 +162,16 @@ export default function DashboardLayout({ children }) {
                                         href={adminNavLink.href}
                                         className="flex items-center gap-3 px-4 py-3 rounded-2xl transition-all duration-200"
                                         style={{
-                                            backgroundColor: pathname.startsWith("/admin")
-                                                ? "var(--color-accent-red)"
-                                                : "transparent",
+                                            backgroundColor:
+                                                pathname.startsWith("/admin")
+                                                    ? "var(--color-accent-red)"
+                                                    : "transparent",
                                             color: pathname.startsWith("/admin")
                                                 ? "var(--color-ink)"
                                                 : "var(--color-ink-muted)",
-                                            border: pathname.startsWith("/admin")
+                                            border: pathname.startsWith(
+                                                "/admin",
+                                            )
                                                 ? "1px solid var(--color-hairline)"
                                                 : "1px solid transparent",
                                         }}
@@ -175,10 +182,7 @@ export default function DashboardLayout({ children }) {
                                         </span>
                                     </Link>
                                 </TooltipTrigger>
-                                <TooltipContent
-                                    side="right"
-                                    sideOffset={10}
-                                >
+                                <TooltipContent side="right" sideOffset={10}>
                                     {adminNavLink.label}
                                 </TooltipContent>
                             </Tooltip>
@@ -195,8 +199,7 @@ export default function DashboardLayout({ children }) {
                             <div
                                 className="w-10 h-10 rounded-full overflow-hidden"
                                 style={{
-                                    backgroundColor:
-                                        "var(--color-surface-1)",
+                                    backgroundColor: "var(--color-surface-1)",
                                     border: "1px solid var(--color-hairline)",
                                 }}
                             >
@@ -374,8 +377,7 @@ export default function DashboardLayout({ children }) {
                             <div
                                 className="w-10 h-10 rounded-full overflow-hidden"
                                 style={{
-                                    backgroundColor:
-                                        "var(--color-surface-1)",
+                                    backgroundColor: "var(--color-surface-1)",
                                     border: "1px solid var(--color-hairline)",
                                 }}
                             >
