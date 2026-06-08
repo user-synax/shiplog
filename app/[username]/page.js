@@ -9,7 +9,6 @@ import BuildLog from "../../models/BuildLog";
 import TechStack from "../../models/TechStack";
 import Goal from "../../models/Goal";
 import Learning from "../../models/Learning";
-import Achievement from "../../models/Achievement";
 import Guestbook from "../../models/Guestbook";
 import PublicProfileClient from "./PublicProfileClient";
 
@@ -61,7 +60,6 @@ export default async function PublicProfilePage({ params }) {
     const learning = await Learning.find({ userId: user._id })
         .sort({ createdAt: -1 })
         .limit(5);
-    const achievements = await Achievement.find({ userId: user._id });
     const guestbook = await Guestbook.find({
         profileUserId: user._id,
         isApproved: true,
@@ -80,7 +78,6 @@ export default async function PublicProfilePage({ params }) {
             techStack={JSON.parse(JSON.stringify(techStack))}
             goals={JSON.parse(JSON.stringify(goals))}
             learning={JSON.parse(JSON.stringify(learning))}
-            achievements={JSON.parse(JSON.stringify(achievements))}
             guestbook={JSON.parse(JSON.stringify(guestbook))}
         />
     );
