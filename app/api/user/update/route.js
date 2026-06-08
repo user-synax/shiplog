@@ -4,8 +4,6 @@ import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import dbConnect from "@/lib/db";
 import User from "@/models/User";
-import { checkAndUnlock, isProfileComplete } from "@/lib/achievements";
-
 export async function PATCH(request) {
     const session = await auth();
     if (!session) {
