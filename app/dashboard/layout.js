@@ -16,6 +16,7 @@ import {
     Menu,
     X,
     Shield,
+    Wrench,
 } from "lucide-react";
 import {
     Tooltip,
@@ -37,6 +38,7 @@ const navLinks = [
         isPro: true,
     },
     { href: "/dashboard/billing", label: "Billing", icon: CreditCard },
+    { href: "/dashboard/builder", label: "Builder", icon: Wrench },
     { href: "/dashboard/settings", label: "Settings", icon: Settings },
 ];
 
