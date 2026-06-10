@@ -55,14 +55,14 @@
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/your-repo/shiplog.git
+git clone https://github.com/user-synax/shiplog
 cd shiplog
 ```
 
 2. **Install dependencies**
 
 ```bash
-npm install
+pnpm install
 ```
 
 3. **Set up environment variables**
@@ -86,11 +86,11 @@ CLOUDINARY_API_SECRET=your-api-secret
 4. **Run the development server**
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to see the app!
 
 ## 📄 License
 
-MIT © [Your Name]
+MIT © [User Synax]
