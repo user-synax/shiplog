@@ -4,7 +4,6 @@ import { NextResponse } from "next/server";
 import dbConnect from "@/lib/db";
 import User from "@/models/User";
 import BuildLog from "@/models/BuildLog";
-import Achievement from "@/models/Achievement";
 import { auth } from "@/auth";
 
 export async function POST(request) {
