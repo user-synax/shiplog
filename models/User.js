@@ -14,10 +14,11 @@ const UserSchema = new mongoose.Schema(
             github: String,
             linkedin: String,
             x: String,
+            instagram: String,
             website: String,
         },
         isPro: { type: Boolean, default: false },
-        theme: { type: String, default: "default" },
+        theme: { type: String, default: "warm-sand" },
         availability: {
             type: String,
             enum: [
