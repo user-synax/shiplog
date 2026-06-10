@@ -15,5 +15,14 @@ export default async function ProjectsPage() {
         .sort({ order: 1, createdAt: -1 })
         .lean();
 
-    return <ProjectsClient initialProjects={projects} isPro={user.isPro} />;
+    // Serialize data for client component
+    const serializedProjects = projects.map(project => ({
+        ...project,
+        _id: project._id.toString(),
+        userId: project.userId.toString(),
+        createdAt: project.createdAt.toISOString(),
+        updatedAt: project.updatedAt.toISOString(),
+    }));
+
+    return <ProjectsClient initialProjects={serializedProjects} isPro={user.isPro} />;
 }
