@@ -4,6 +4,7 @@ import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import dbConnect from "@/lib/db";
 import User from "@/models/User";
+import { THEMES } from "@/lib/themes";
 export async function PATCH(request) {
     const session = await auth();
     if (!session) {
@@ -50,7 +51,13 @@ export async function PATCH(request) {
     if (availability !== undefined) user.availability = availability;
     if (isProfilePublic !== undefined) user.isProfilePublic = isProfilePublic;
     if (socials) user.socials = { ...user.socials, ...socials };
-    if (theme !== undefined) user.theme = theme;
+    if (theme !== undefined) {
+        const selectedTheme = THEMES.find(t => t.id === theme);
+        if (selectedTheme && selectedTheme.isPro && !user.isPro) {
+            return NextResponse.json({ error: "This theme requires Pro membership" }, { status: 403 });
+        }
+        user.theme = theme;
+    }
 
     await user.save();
 
