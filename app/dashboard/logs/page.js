@@ -16,5 +16,19 @@ export default async function LogsPage() {
         .limit(20)
         .lean();
 
-    return <LogsClient initialLogs={logs} userLastLogDate={user.lastLogDate} />;
+    // Serialize data for client component
+    const serializedLogs = logs.map(log => ({
+        ...log,
+        _id: log._id.toString(),
+        userId: log.userId.toString(),
+        createdAt: log.createdAt.toISOString(),
+        updatedAt: log.updatedAt.toISOString(),
+    }));
+
+    return (
+        <LogsClient
+            initialLogs={serializedLogs}
+            userLastLogDate={user.lastLogDate?.toISOString() || null}
+        />
+    );
 }
