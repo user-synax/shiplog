@@ -21,7 +21,7 @@ export default function PricingCard() {
             );
             const data = await res.json();
             setPromoResult(data);
-        } catch (e) {
+        } catch (error) {
             setPromoResult({
                 valid: false,
                 error: "Failed to validate promo code",
@@ -49,7 +49,7 @@ export default function PricingCard() {
                 const data = await res.json();
                 alert(data.error || "Something went wrong");
             }
-        } catch (e) {
+        } catch (error) {
             alert("Failed to activate subscription");
         } finally {
             setApplying(false);
@@ -101,8 +101,10 @@ export default function PricingCard() {
                 </div>
 
                 {/* Plan Selector (Pricing Tabs style from DESIGN.md) */}
-                <div className="inline-flex gap-2 p-1 rounded-full"
-                    style={{ backgroundColor: "var(--color-surface-1)" }}>
+                <div
+                    className="inline-flex gap-2 p-1 rounded-full"
+                    style={{ backgroundColor: "var(--color-surface-1)" }}
+                >
                     {Object.entries(PLANS).map(([key, plan]) => (
                         <button
                             key={key}
@@ -216,6 +218,12 @@ export default function PricingCard() {
                     >
                         {applying ? "Activating..." : "Unlock with Promo Code"}
                     </button>
+                    <a
+                        href="https://wa.me/+918826343179?text=Hello%20Shiplog!%20I%20need%20a%20promo%20code."
+                        className="pt-14 underline text-gray-400"
+                    >
+                        Get a promo code
+                    </a>
                 </div>
             </div>
         </div>
