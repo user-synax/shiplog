@@ -23,11 +23,36 @@ export default async function StackPage() {
         .sort({ order: 1 })
         .lean();
 
+    // Serialize data for client component
+    const serializedTechStack = techStack.map(item => ({
+        ...item,
+        _id: item._id.toString(),
+        userId: item.userId.toString(),
+        createdAt: item.createdAt.toISOString(),
+        updatedAt: item.updatedAt.toISOString(),
+    }));
+
+    const serializedGoals = goals.map(goal => ({
+        ...goal,
+        _id: goal._id.toString(),
+        userId: goal.userId.toString(),
+        createdAt: goal.createdAt.toISOString(),
+        updatedAt: goal.updatedAt.toISOString(),
+    }));
+
+    const serializedLearning = learning.map(item => ({
+        ...item,
+        _id: item._id.toString(),
+        userId: item.userId.toString(),
+        createdAt: item.createdAt.toISOString(),
+        updatedAt: item.updatedAt.toISOString(),
+    }));
+
     return (
         <StackPageClient
-            initialTechStack={techStack}
-            initialGoals={goals}
-            initialLearning={learning}
+            initialTechStack={serializedTechStack}
+            initialGoals={serializedGoals}
+            initialLearning={serializedLearning}
             isPro={user.isPro}
         />
     );
