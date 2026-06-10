@@ -1,16 +1,11 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/your-repo/shiplog/main/public/shiplog.png" alt="Shiplog Logo" width="120" height="120" />
+  <img src="https://github.com/user-synax/shiplog/blob/main/public/shiplog.png" alt="Shiplog Logo" width="120" height="120" />
   <h1 align="center">Shiplog</h1>
   <p align="center">
     Your developer identity. One living profile.
   </p>
   <p align="center">
     Showcase projects, track daily build logs, and maintain a streak — all in one beautiful public profile.
-  </p>
-  <p align="center">
-    <a href="https://github.com/your-repo/shiplog/stargazers"><img src="https://img.shields.io/github/stars/your-repo/shiplog?style=flat&colorA=000000&colorB=000000" /></a>
-    <a href="https://github.com/your-repo/shiplog/fork"><img src="https://img.shields.io/github/forks/your-repo/shiplog?style=flat&colorA=000000&colorB=000000" /></a>
-    <a href="https://github.com/your-repo/shiplog/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-000000.svg?style=flat&colorA=000000&colorB=000000" /></a>
   </p>
 </div>
 
