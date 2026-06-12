@@ -21,7 +21,7 @@ export default function ProjectsClient({ initialProjects, isPro }) {
     }, [initialProjects, setProjects]);
 
     return (
-        <div className="max-w-6xl mt-0 md:mt-13 mx-auto space-y-6 md:space-y-8 px-4 md:px-0">
+        <div className="max-w-6xl mt-14 md:mt-13 mx-auto space-y-6 md:space-y-8 px-4 md:px-0">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <h1
                     className="text-2xl md:text-3xl font-bold tracking-tight"
