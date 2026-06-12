@@ -21,7 +21,8 @@ export default async function AnalyticsPage() {
                 <div
                     className="w-full max-w-md p-8 rounded-[30px] text-center"
                     style={{
-                        background: "linear-gradient(135deg,#8b5cf6 0%,#ec4899 100%)",
+                        background:
+                            "linear-gradient(135deg,#8b5cf6 0%,#ec4899 100%)",
                     }}
                 >
                     <h2
@@ -30,7 +31,8 @@ export default async function AnalyticsPage() {
                         Unlock Analytics
                     </h2>
                     <p className="text-white/80 mb-6">
-                        Upgrade to Pro to see detailed profile views, project clicks, and more.
+                        Upgrade to Pro to see detailed profile views, project
+                        clicks, and more.
                     </p>
                     <Link
                         href="/dashboard/billing"
