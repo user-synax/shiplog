@@ -114,7 +114,7 @@ export default function AnalyticsDashboard() {
     const topProject = data?.topProjects?.[0];
 
     return (
-        <div className="space-y-6">
+        <div className="space-y-4 mt-14 md:space-y-6">
             {/* Header */}
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div>
