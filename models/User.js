@@ -18,6 +18,11 @@ const UserSchema = new mongoose.Schema(
             website: String,
         },
         isPro: { type: Boolean, default: false },
+        proSubscription: {
+            grantedBy: String,
+            grantedAt: Date,
+            expiresAt: Date,
+        },
         theme: { type: String, default: "warm-sand" },
         availability: {
             type: String,
