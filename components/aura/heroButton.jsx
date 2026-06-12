@@ -16,7 +16,7 @@ export default function HeroButton() {
     };
 
     return (
-        <div className="btn-wrapper" style={{ maxWidth: "260px" }}>
+        <div className="btn-wrapper" style={{ maxWidth: "300px" }}>
             <button
                 ref={buttonRef}
                 className="btn-spotlight btn-size-2"
