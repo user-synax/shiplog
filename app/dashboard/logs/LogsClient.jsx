@@ -527,81 +527,79 @@ export default function LogsClient({ initialLogs, userLastLogDate }) {
                         COMPOSE CARD
                     ════════════════════════════════════ */}
                     <div className="lc-form-card">
-                        {alreadyLoggedToday ? (
-                            /* ── Already logged today ── */
-                            <div className="lc-done-state">
-                                <div className="lc-done-icon">
-                                    <IconCheckCircle />
+                        {/* ── Log form (always show) ── */}
+                        <form onSubmit={handleSubmit}>
+                            {/* Already logged today indicator */}
+                            {alreadyLoggedToday && (
+                                <div style={{ marginBottom: 16, paddingBottom: 16, borderBottom: '1px solid var(--hairline)' }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--ink-muted)', fontSize: 13 }}>
+                                        <div style={{ width: 20, height: 20, borderRadius: '50%', background: 'rgba(34,197,94,0.12)', border: '1px solid rgba(34,197,94,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                            <IconCheckCircle />
+                                        </div>
+                                        <span>You&apos;ve logged today — add another log!</span>
+                                    </div>
                                 </div>
-                                <p className="lc-done-title">You&apos;ve logged today</p>
-                                <p className="lc-done-sub">
-                                    Come back tomorrow to keep the streak alive.
-                                </p>
+                            )}
+
+                            {/* Content textarea */}
+                            <div className="lc-field">
+                                <div className="lc-label">
+                                    <span>What did you build today?</span>
+                                    <span className="lc-char-count">{content.length} / 500</span>
+                                </div>
+                                <textarea
+                                    className="lc-textarea"
+                                    value={content}
+                                    onChange={(e) => setContent(e.target.value)}
+                                    maxLength={500}
+                                    rows={4}
+                                    disabled={isSubmitting}
+                                    placeholder="Ship something. Learn something. Break something. Log it."
+                                />
                             </div>
-                        ) : (
-                            /* ── Log form ── */
-                            <form onSubmit={handleSubmit}>
 
-                                {/* Content textarea */}
-                                <div className="lc-field">
-                                    <div className="lc-label">
-                                        <span>What did you build today?</span>
-                                        <span className="lc-char-count">{content.length} / 500</span>
-                                    </div>
-                                    <textarea
-                                        className="lc-textarea"
-                                        value={content}
-                                        onChange={(e) => setContent(e.target.value)}
-                                        maxLength={500}
-                                        rows={4}
-                                        disabled={isSubmitting}
-                                        placeholder="Ship something. Learn something. Break something. Log it."
-                                    />
+                            {/* Mood selector */}
+                            <div className="lc-field">
+                                <p className="lc-label">Today&apos;s vibe</p>
+                                <div className="lc-mood-grid">
+                                    {MOOD_OPTIONS.map((m) => (
+                                        <button
+                                            key={m.value}
+                                            type="button"
+                                            disabled={isSubmitting}
+                                            onClick={() => setMood(m.value)}
+                                            className={`lc-mood-btn ${mood === m.value ? "lc-mood-btn-active" : ""}`}
+                                            title={m.label}
+                                        >
+                                            <span className="lc-mood-emoji">{m.emoji}</span>
+                                            <span className="lc-mood-label">{m.label}</span>
+                                        </button>
+                                    ))}
                                 </div>
+                            </div>
 
-                                {/* Mood selector */}
-                                <div className="lc-field">
-                                    <p className="lc-label">Today&apos;s vibe</p>
-                                    <div className="lc-mood-grid">
-                                        {MOOD_OPTIONS.map((m) => (
-                                            <button
-                                                key={m.value}
-                                                type="button"
-                                                disabled={isSubmitting}
-                                                onClick={() => setMood(m.value)}
-                                                className={`lc-mood-btn ${mood === m.value ? "lc-mood-btn-active" : ""}`}
-                                                title={m.label}
-                                            >
-                                                <span className="lc-mood-emoji">{m.emoji}</span>
-                                                <span className="lc-mood-label">{m.label}</span>
-                                            </button>
-                                        ))}
-                                    </div>
-                                </div>
+                            {/* Tags */}
+                            <div className="lc-field">
+                                <p className="lc-label">Tags</p>
+                                <input
+                                    type="text"
+                                    className="lc-input"
+                                    value={tags}
+                                    onChange={(e) => setTags(e.target.value)}
+                                    disabled={isSubmitting}
+                                    placeholder="react, api, bug-fix  — comma separated"
+                                />
+                            </div>
 
-                                {/* Tags */}
-                                <div className="lc-field">
-                                    <p className="lc-label">Tags</p>
-                                    <input
-                                        type="text"
-                                        className="lc-input"
-                                        value={tags}
-                                        onChange={(e) => setTags(e.target.value)}
-                                        disabled={isSubmitting}
-                                        placeholder="react, api, bug-fix  — comma separated"
-                                    />
-                                </div>
-
-                                {/* Submit */}
-                                <button
-                                    type="submit"
-                                    className="lc-submit"
-                                    disabled={isSubmitting || !content.trim()}
-                                >
-                                    {isSubmitting ? "Saving…" : "Add Today's Log"}
-                                </button>
-                            </form>
-                        )}
+                            {/* Submit */}
+                            <button
+                                type="submit"
+                                className="lc-submit"
+                                disabled={isSubmitting || !content.trim()}
+                            >
+                                {isSubmitting ? "Saving…" : "Add Log"}
+                            </button>
+                        </form>
                     </div>
 
                     {/* ════════════════════════════════════
