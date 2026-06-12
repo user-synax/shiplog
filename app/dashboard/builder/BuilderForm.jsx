@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Lock } from "lucide-react";
 import { THEMES } from "@/lib/themes";
+import { useUploadThing } from "@/lib/uploadthing-client";
 
 export default function BuilderForm({ initialUser }) {
     const router = useRouter();
@@ -24,6 +25,21 @@ export default function BuilderForm({ initialUser }) {
     const [toast, setToast] = useState(null);
     const debounceTimerRef = useRef();
 
+    const { startUpload, isUploading, uploadProgress } = useUploadThing("resumeUploader", {
+        onClientUploadComplete: (res) => {
+            if (res?.[0]?.url) {
+                setResumeUrl(res[0].url);
+                setToast({ type: "success", message: "Resume uploaded!" });
+                setTimeout(() => setToast(null), 3000);
+            }
+        },
+        onUploadError: (error) => {
+            console.error(error);
+            setToast({ type: "error", message: "Failed to upload resume" });
+            setTimeout(() => setToast(null), 3000);
+        },
+    });
+
     const saveSettings = async () => {
         if (usernameStatus === "checking" || usernameStatus === "taken" || usernameStatus === "invalid") {
             return;
@@ -43,7 +59,13 @@ export default function BuilderForm({ initialUser }) {
                     theme,
                 }),
             });
-            const data = await res.json();
+            const text = await res.text();
+            let data;
+            try {
+                data = JSON.parse(text);
+            } catch (jsonErr) {
+                throw new Error("Invalid JSON response from server");
+            }
             if (data.success) {
                 setToast({ type: "success", message: "Settings saved!" });
                 setTimeout(() => setToast(null), 3000);
@@ -114,24 +136,7 @@ export default function BuilderForm({ initialUser }) {
     const handleResumeUpload = async (e) => {
         const file = e.target.files[0];
         if (!file) return;
-        const formData = new FormData();
-        formData.append("file", file);
-        try {
-            const res = await fetch("/api/user/resume", {
-                method: "POST",
-                body: formData,
-            });
-            const data = await res.json();
-            if (data.success) {
-                setResumeUrl(data.resumeUrl);
-                setToast({ type: "success", message: "Resume uploaded!" });
-                setTimeout(() => setToast(null), 3000);
-            }
-        } catch (err) {
-            console.error(err);
-            setToast({ type: "error", message: "Failed to upload resume" });
-            setTimeout(() => setToast(null), 3000);
-        }
+        await startUpload([file]);
     };
 
     return (
@@ -328,45 +333,58 @@ export default function BuilderForm({ initialUser }) {
                 </div>
 
                 {/* Resume Upload */}
-                <div
-                    className="p-6 rounded-2xl"
-                    style={{ backgroundColor: "var(--color-surface-1)" }}
+    <div
+        className="p-6 rounded-2xl"
+        style={{ backgroundColor: "var(--color-surface-1)" }}
+    >
+        <h2
+            className="font-bold mb-4"
+            style={{ color: "var(--color-ink)" }}
+        >
+            Resume
+        </h2>
+        <div>
+            {resumeUrl && (
+                <a
+                    href={resumeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block mb-3 text-sm underline"
+                    style={{ color: "var(--color-accent-blue)" }}
                 >
-                    <h2
-                        className="font-bold mb-4"
-                        style={{ color: "var(--color-ink)" }}
-                    >
-                        Resume
-                    </h2>
-                    <div>
-                        {resumeUrl && (
-                            <a
-                                href={resumeUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="block mb-3 text-sm underline"
-                                style={{ color: "var(--color-accent-blue)" }}
-                            >
-                                View current resume
-                            </a>
-                        )}
-                        <label
-                            className="inline-block px-4 py-2 rounded-full cursor-pointer transition-all"
-                            style={{
-                                backgroundColor: "var(--color-surface-2)",
-                                color: "var(--color-ink)",
-                            }}
-                        >
-                            Upload PDF Resume
-                            <input
-                                type="file"
-                                accept="application/pdf"
-                                onChange={handleResumeUpload}
-                                className="hidden"
-                            />
-                        </label>
-                    </div>
+                    View current resume
+                </a>
+            )}
+            <label
+                className="inline-block px-4 py-2 rounded-full cursor-pointer transition-all"
+                style={{
+                    backgroundColor: "var(--color-surface-2)",
+                    color: "var(--color-ink)",
+                    opacity: isUploading ? 0.5 : 1,
+                }}
+            >
+                {isUploading ? `Uploading ${uploadProgress}%` : "Upload Resume (PDF, DOC, DOCX)"}
+                <input
+                    type="file"
+                    accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                    onChange={handleResumeUpload}
+                    disabled={isUploading}
+                    className="hidden"
+                />
+            </label>
+            {isUploading && (
+                <div className="mt-4 w-full h-2 rounded-full overflow-hidden" style={{ backgroundColor: "var(--color-surface-2)" }}>
+                    <div 
+                        className="h-full transition-all duration-200"
+                        style={{ 
+                            width: `${uploadProgress || 0}%`,
+                            backgroundColor: "var(--color-accent-blue)"
+                        }}
+                    />
                 </div>
+            )}
+        </div>
+    </div>
 
                 {/* Social Links */}
                 <div
