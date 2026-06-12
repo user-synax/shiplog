@@ -3,7 +3,6 @@ import { auth } from "@/auth";
 import dbConnect from "@/lib/db";
 import User from "@/models/User";
 import Project from "@/models/Project";
-import { checkAndUnlock } from "@/lib/achievements";
 
 export const runtime = "nodejs";
 
@@ -54,10 +53,6 @@ export async function POST(request) {
         order: projectCount + 1,
         isActive: true,
     });
-
-    if (projectCount === 0) {
-        await checkAndUnlock(user._id, "first_project");
-    }
 
     return NextResponse.json({ project });
 }
