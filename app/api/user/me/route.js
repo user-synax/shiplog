@@ -4,6 +4,7 @@ import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import dbConnect from "@/lib/db";
 import { getDefaultAvatarUrl, isAdminEmail } from "@/lib/utils";
+import { checkAndUpdateExpiredPro } from "@/lib/server-utils";
 import User from "@/models/User";
 import Project from "@/models/Project";
 import BuildLog from "@/models/BuildLog";
@@ -16,7 +17,9 @@ export async function GET(request) {
     }
 
     await dbConnect();
-    const user = await User.findOne({ email: session.user.email }).lean();
+    let user = await User.findOne({ email: session.user.email });
+    user = await checkAndUpdateExpiredPro(user);
+    const userLean = user.toObject();
     const totalProjects = await Project.countDocuments({ userId: user._id });
     const totalProfileViews = await ProfileView.countDocuments({
         profileUserId: user._id,
@@ -28,8 +31,8 @@ export async function GET(request) {
 
     return NextResponse.json({
         user: {
-            ...user,
-            avatarUrl: user.avatarUrl || user.image || getDefaultAvatarUrl(user.username),
+            ...userLean,
+            avatarUrl: userLean.avatarUrl || userLean.image || getDefaultAvatarUrl(userLean.username),
             totalProjects,
             totalProfileViews,
             recentLogs,
