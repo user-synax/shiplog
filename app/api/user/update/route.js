@@ -61,11 +61,5 @@ export async function PATCH(request) {
 
     await user.save();
 
-    // Check if profile is complete and unlock achievement
-    const complete = await isProfileComplete(user._id);
-    if (complete) {
-        await checkAndUnlock(user._id, "profile_complete");
-    }
-
     return NextResponse.json({ success: true, user });
 }
