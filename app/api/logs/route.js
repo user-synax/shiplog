@@ -56,23 +56,15 @@ export async function POST(request) {
     const yesterday = new Date(today);
     yesterday.setDate(yesterday.getDate() - 1);
 
-    if (lastLogDate) {
-        const normalizedLastLog = new Date(lastLogDate);
-        normalizedLastLog.setHours(0, 0, 0, 0);
-        if (normalizedLastLog.getTime() === today.getTime()) {
-            return NextResponse.json(
-                { error: "Already logged today" },
-                { status: 409 },
-            );
-        }
-    }
-
     let newStreak;
     if (lastLogDate) {
         const normalizedLastLog = new Date(lastLogDate);
         normalizedLastLog.setHours(0, 0, 0, 0);
         if (normalizedLastLog.getTime() === yesterday.getTime()) {
             newStreak = (user.currentStreak || 0) + 1;
+        } else if (normalizedLastLog.getTime() === today.getTime()) {
+            // Already logged today - keep current streak
+            newStreak = user.currentStreak;
         } else {
             newStreak = 1;
         }
@@ -89,9 +81,16 @@ export async function POST(request) {
         tags,
     });
 
-    user.lastLogDate = new Date();
-    user.currentStreak = newStreak;
-    user.longestStreak = longestStreak;
+    // Only update lastLogDate and streak if not logged before today
+    const lastLogNorm = lastLogDate ? new Date(lastLogDate) : null;
+    if (lastLogNorm) {
+        lastLogNorm.setHours(0, 0, 0, 0);
+    }
+    if (!lastLogDate || lastLogNorm.getTime() !== today.getTime()) {
+        user.lastLogDate = new Date();
+        user.currentStreak = newStreak;
+        user.longestStreak = longestStreak;
+    }
     user.totalLogs = (user.totalLogs || 0) + 1;
 
     await user.save();
