@@ -43,6 +43,16 @@ export default async function AdminLayout({ children }) {
                     Dashboard
                 </Link>
                 <Link
+                    href="/admin/users"
+                    className="px-4 py-2 rounded-lg hover:opacity-80"
+                    style={{
+                        backgroundColor: "var(--color-surface-1)",
+                        color: "var(--color-ink)",
+                    }}
+                >
+                    Users
+                </Link>
+                <Link
                     href="/admin/promo"
                     className="px-4 py-2 rounded-lg hover:opacity-80"
                     style={{
