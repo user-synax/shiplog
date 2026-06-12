@@ -20,8 +20,19 @@ export default async function Home() {
         >
             {/* Navbar */}
             <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95vw] md:w-[80vw] max-w-6xl">
-                <div className="backdrop-blur-xl rounded-full px-6 py-3 flex items-center justify-between" style={{ backgroundColor: "rgba(15,15,15,0.8)", border: "1px solid var(--color-hairline)" }}>
+                <div
+                    className="backdrop-blur-xl rounded-full px-6 py-3 flex items-center justify-between"
+                    style={{
+                        backgroundColor: "rgba(15,15,15,0.8)",
+                        border: "1px solid var(--color-hairline)",
+                    }}
+                >
                     <Link href="/" className="flex items-center gap-2 shrink-0">
+                        <img
+                            src="/shiplog.png"
+                            alt="Shiplog Logo"
+                            className="w-8 h-8 object-contain"
+                        />
                         <span
                             className={`${plusJakarta.className} text-2xl font-bold tracking-tight`}
                             style={{ color: "var(--color-ink)" }}
@@ -34,7 +45,10 @@ export default async function Home() {
                         <Link
                             href="/auth/signin"
                             className="hidden md:inline-flex px-5 py-2 rounded-full text-sm font-medium transition-colors"
-                            style={{ backgroundColor: "var(--color-surface-1)", color: "var(--color-ink)" }}
+                            style={{
+                                backgroundColor: "var(--color-surface-1)",
+                                color: "var(--color-ink)",
+                            }}
                         >
                             Sign in
                         </Link>
@@ -42,7 +56,10 @@ export default async function Home() {
                         <Link
                             href="/auth/signin"
                             className="px-5 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity"
-                            style={{ backgroundColor: "var(--color-primary)", color: "var(--color-canvas)" }}
+                            style={{
+                                backgroundColor: "var(--color-primary)",
+                                color: "var(--color-canvas)",
+                            }}
                         >
                             Get started
                         </Link>
@@ -60,7 +77,10 @@ export default async function Home() {
                     <div className="max-w-4xl mx-auto text-center space-y-8 relative z-10">
                         <h1
                             className={`${plusJakarta.className} text-4xl sm:text-7xl md:text-7xl font-semibold tracking-tighter`}
-                            style={{ color: "var(--color-ink)", letterSpacing: "-0.04em" }}
+                            style={{
+                                color: "var(--color-ink)",
+                                letterSpacing: "-0.04em",
+                            }}
                         >
                             Your developer identity.
                             <br />
@@ -70,7 +90,9 @@ export default async function Home() {
                             className="text-base sm:text-lg md:text-xl max-w-lg mx-auto"
                             style={{ color: "var(--color-ink-muted)" }}
                         >
-                            Showcase projects, track daily build logs, and maintain a streak — all in one beautiful public profile.
+                            Showcase projects, track daily build logs, and
+                            maintain a streak — all in one beautiful public
+                            profile.
                         </p>
                         <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4">
                             <Link
@@ -78,13 +100,6 @@ export default async function Home() {
                                 className="w-full sm:w-auto rounded-full text-md font-semibold flex items-center justify-center gap-2"
                             >
                                 <HeroButton />
-                            </Link>
-                            <Link
-                                href="#"
-                                className="w-full sm:w-auto px-5 py-3 rounded-full text-md font-medium transition-colors"
-                                style={{ backgroundColor: "var(--color-surface-1)", color: "var(--color-ink)" }}
-                            >
-                                See an example
                             </Link>
                         </div>
 
@@ -99,15 +114,34 @@ export default async function Home() {
                                 }}
                             >
                                 <div className="flex items-center gap-2">
-                                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "var(--color-surface-2)" }} />
-                                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "var(--color-surface-2)" }} />
-                                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "var(--color-surface-2)" }} />
+                                    <div
+                                        className="w-3 h-3 rounded-full"
+                                        style={{
+                                            backgroundColor:
+                                                "var(--color-surface-2)",
+                                        }}
+                                    />
+                                    <div
+                                        className="w-3 h-3 rounded-full"
+                                        style={{
+                                            backgroundColor:
+                                                "var(--color-surface-2)",
+                                        }}
+                                    />
+                                    <div
+                                        className="w-3 h-3 rounded-full"
+                                        style={{
+                                            backgroundColor:
+                                                "var(--color-surface-2)",
+                                        }}
+                                    />
 
                                     <div className="flex-1 mx-4">
                                         <div
                                             className="rounded-full px-4 py-2 text-xs text-center"
                                             style={{
-                                                backgroundColor: "var(--color-surface-1)",
+                                                backgroundColor:
+                                                    "var(--color-surface-1)",
                                                 color: "var(--color-ink-muted)",
                                                 border: "1px solid var(--color-hairline)",
                                             }}
@@ -142,8 +176,10 @@ export default async function Home() {
                                                     alt="avatar"
                                                     className="w-24 h-24 rounded-full border-2"
                                                     style={{
-                                                        borderColor: "var(--color-hairline)",
-                                                        backgroundColor: "var(--color-surface-1)",
+                                                        borderColor:
+                                                            "var(--color-hairline)",
+                                                        backgroundColor:
+                                                            "var(--color-surface-1)",
                                                     }}
                                                 />
                                             </div>
@@ -151,34 +187,108 @@ export default async function Home() {
                                             <div className="mt-5">
                                                 <h3
                                                     className={`${plusJakarta.className} text-2xl font-semibold`}
-                                                    style={{ color: "var(--color-ink)" }}
+                                                    style={{
+                                                        color: "var(--color-ink)",
+                                                    }}
                                                 >
                                                     Alex Chen
                                                 </h3>
 
-                                                <p className="text-sm mt-1" style={{ color: "var(--color-ink-muted)" }}>
+                                                <p
+                                                    className="text-sm mt-1"
+                                                    style={{
+                                                        color: "var(--color-ink-muted)",
+                                                    }}
+                                                >
                                                     @alex
                                                 </p>
 
-                                                <p className="text-sm mt-4 leading-relaxed" style={{ color: "var(--color-ink-muted)" }}>
-                                                    Full-stack developer building cool things on the internet.
+                                                <p
+                                                    className="text-sm mt-4 leading-relaxed"
+                                                    style={{
+                                                        color: "var(--color-ink-muted)",
+                                                    }}
+                                                >
+                                                    Full-stack developer
+                                                    building cool things on the
+                                                    internet.
                                                 </p>
                                             </div>
                                         </div>
 
                                         {/* Streak & Stats */}
                                         <div className="grid grid-cols-3 gap-3 mt-6">
-                                            <div className="rounded-2xl p-4 text-center" style={{ backgroundColor: "var(--color-surface-1)" }}>
-                                                <p className="text-2xl font-bold" style={{ color: "var(--color-ink)" }}>28</p>
-                                                <p className="text-xs mt-1" style={{ color: "var(--color-ink-muted)" }}>Day Streak 🔥</p>
+                                            <div
+                                                className="rounded-2xl p-4 text-center"
+                                                style={{
+                                                    backgroundColor:
+                                                        "var(--color-surface-1)",
+                                                }}
+                                            >
+                                                <p
+                                                    className="text-2xl font-bold"
+                                                    style={{
+                                                        color: "var(--color-ink)",
+                                                    }}
+                                                >
+                                                    28
+                                                </p>
+                                                <p
+                                                    className="text-xs mt-1"
+                                                    style={{
+                                                        color: "var(--color-ink-muted)",
+                                                    }}
+                                                >
+                                                    Day Streak 🔥
+                                                </p>
                                             </div>
-                                            <div className="rounded-2xl p-4 text-center" style={{ backgroundColor: "var(--color-surface-1)" }}>
-                                                <p className="text-2xl font-bold" style={{ color: "var(--color-ink)" }}>127</p>
-                                                <p className="text-xs mt-1" style={{ color: "var(--color-ink-muted)" }}>Build Logs</p>
+                                            <div
+                                                className="rounded-2xl p-4 text-center"
+                                                style={{
+                                                    backgroundColor:
+                                                        "var(--color-surface-1)",
+                                                }}
+                                            >
+                                                <p
+                                                    className="text-2xl font-bold"
+                                                    style={{
+                                                        color: "var(--color-ink)",
+                                                    }}
+                                                >
+                                                    127
+                                                </p>
+                                                <p
+                                                    className="text-xs mt-1"
+                                                    style={{
+                                                        color: "var(--color-ink-muted)",
+                                                    }}
+                                                >
+                                                    Build Logs
+                                                </p>
                                             </div>
-                                            <div className="rounded-2xl p-4 text-center" style={{ backgroundColor: "var(--color-surface-1)" }}>
-                                                <p className="text-2xl font-bold" style={{ color: "var(--color-ink)" }}>9</p>
-                                                <p className="text-xs mt-1" style={{ color: "var(--color-ink-muted)" }}>Projects</p>
+                                            <div
+                                                className="rounded-2xl p-4 text-center"
+                                                style={{
+                                                    backgroundColor:
+                                                        "var(--color-surface-1)",
+                                                }}
+                                            >
+                                                <p
+                                                    className="text-2xl font-bold"
+                                                    style={{
+                                                        color: "var(--color-ink)",
+                                                    }}
+                                                >
+                                                    9
+                                                </p>
+                                                <p
+                                                    className="text-xs mt-1"
+                                                    style={{
+                                                        color: "var(--color-ink-muted)",
+                                                    }}
+                                                >
+                                                    Projects
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -200,9 +310,19 @@ export default async function Home() {
 
                         <div className="grid grid-cols-1 md:grid-cols-6 gap-5">
                             {/* Large Streak Card */}
-                            <div className="md:col-span-4 rounded-[30px] p-8 min-h-[320px] flex flex-col justify-between" style={{ backgroundColor: "var(--color-surface-1)" }}>
+                            <div
+                                className="md:col-span-4 rounded-[30px] p-8 min-h-[320px] flex flex-col justify-between"
+                                style={{
+                                    backgroundColor: "var(--color-surface-1)",
+                                }}
+                            >
                                 <div>
-                                    <span style={{ color: "var(--color-ink-muted)" }} className="text-sm">
+                                    <span
+                                        style={{
+                                            color: "var(--color-ink-muted)",
+                                        }}
+                                        className="text-sm"
+                                    >
                                         Streaks
                                     </span>
 
@@ -214,7 +334,14 @@ export default async function Home() {
                                     </h3>
                                 </div>
 
-                                <div className="mt-8 rounded-2xl h-40 flex items-center justify-center" style={{ backgroundColor: "var(--color-surface-2)", color: "var(--color-ink-muted)" }}>
+                                <div
+                                    className="mt-8 rounded-2xl h-40 flex items-center justify-center"
+                                    style={{
+                                        backgroundColor:
+                                            "var(--color-surface-2)",
+                                        color: "var(--color-ink-muted)",
+                                    }}
+                                >
                                     Streak Preview
                                 </div>
                             </div>
@@ -223,7 +350,8 @@ export default async function Home() {
                             <div
                                 className="md:col-span-2 rounded-[30px] p-8 min-h-[320px] text-white flex flex-col justify-between"
                                 style={{
-                                    background: "linear-gradient(135deg,#8b5cf6 0%,#ec4899 100%)",
+                                    background:
+                                        "linear-gradient(135deg,#8b5cf6 0%,#ec4899 100%)",
                                 }}
                             >
                                 <div>
@@ -239,14 +367,25 @@ export default async function Home() {
                                 </div>
 
                                 <p className="text-white/80">
-                                    Your public profile stays fresh with every build log you post.
+                                    Your public profile stays fresh with every
+                                    build log you post.
                                 </p>
                             </div>
 
                             {/* Projects */}
-                            <div className="md:col-span-2 rounded-[30px] p-8 min-h-[260px]" style={{ backgroundColor: "var(--color-surface-1)" }}>
+                            <div
+                                className="md:col-span-2 rounded-[30px] p-8 min-h-[260px]"
+                                style={{
+                                    backgroundColor: "var(--color-surface-1)",
+                                }}
+                            >
                                 <div className="flex items-center gap-2 mb-4">
-                                    <span style={{ color: "var(--color-ink-muted)" }} className="text-sm">
+                                    <span
+                                        style={{
+                                            color: "var(--color-ink-muted)",
+                                        }}
+                                        className="text-sm"
+                                    >
                                         Projects
                                     </span>
                                 </div>
@@ -258,15 +397,29 @@ export default async function Home() {
                                     Showcase your best work
                                 </h3>
 
-                                <p className="mt-4" style={{ color: "var(--color-ink-muted)" }}>
-                                    Pin favorite projects, add tech stacks, and link to demos & repos.
+                                <p
+                                    className="mt-4"
+                                    style={{ color: "var(--color-ink-muted)" }}
+                                >
+                                    Pin favorite projects, add tech stacks, and
+                                    link to demos & repos.
                                 </p>
                             </div>
 
                             {/* Build Logs */}
-                            <div className="md:col-span-2 rounded-[30px] p-8 min-h-[260px]" style={{ backgroundColor: "var(--color-surface-1)" }}>
+                            <div
+                                className="md:col-span-2 rounded-[30px] p-8 min-h-[260px]"
+                                style={{
+                                    backgroundColor: "var(--color-surface-1)",
+                                }}
+                            >
                                 <div className="flex items-center gap-2 mb-4">
-                                    <span style={{ color: "var(--color-ink-muted)" }} className="text-sm">
+                                    <span
+                                        style={{
+                                            color: "var(--color-ink-muted)",
+                                        }}
+                                        className="text-sm"
+                                    >
                                         Logs
                                     </span>
                                 </div>
@@ -278,8 +431,12 @@ export default async function Home() {
                                     Daily build logs
                                 </h3>
 
-                                <p className="mt-4" style={{ color: "var(--color-ink-muted)" }}>
-                                    Track progress, share wins, and document what you are currently working on.
+                                <p
+                                    className="mt-4"
+                                    style={{ color: "var(--color-ink-muted)" }}
+                                >
+                                    Track progress, share wins, and document
+                                    what you are currently working on.
                                 </p>
                             </div>
 
@@ -287,7 +444,8 @@ export default async function Home() {
                             <div
                                 className="md:col-span-2 rounded-[30px] p-8 min-h-[260px] text-white"
                                 style={{
-                                    background: "linear-gradient(135deg,#ff7a3d 0%,#ff5577 100%)",
+                                    background:
+                                        "linear-gradient(135deg,#ff7a3d 0%,#ff5577 100%)",
                                 }}
                             >
                                 <span className="text-white/70 text-sm">
@@ -302,9 +460,19 @@ export default async function Home() {
                             </div>
 
                             {/* Goals */}
-                            <div className="md:col-span-3 rounded-[30px] p-8 min-h-[280px]" style={{ backgroundColor: "var(--color-surface-1)" }}>
+                            <div
+                                className="md:col-span-3 rounded-[30px] p-8 min-h-[280px]"
+                                style={{
+                                    backgroundColor: "var(--color-surface-1)",
+                                }}
+                            >
                                 <div className="flex items-center gap-2 mb-4">
-                                    <span style={{ color: "var(--color-ink-muted)" }} className="text-sm">
+                                    <span
+                                        style={{
+                                            color: "var(--color-ink-muted)",
+                                        }}
+                                        className="text-sm"
+                                    >
                                         Goals
                                     </span>
                                 </div>
@@ -316,15 +484,29 @@ export default async function Home() {
                                     Set and track your goals
                                 </h3>
 
-                                <p className="mt-4 max-w-sm" style={{ color: "var(--color-ink-muted)" }}>
-                                    Stay focused with learning goals and track your progress over time.
+                                <p
+                                    className="mt-4 max-w-sm"
+                                    style={{ color: "var(--color-ink-muted)" }}
+                                >
+                                    Stay focused with learning goals and track
+                                    your progress over time.
                                 </p>
                             </div>
 
                             {/* Achievements */}
-                            <div className="md:col-span-3 rounded-[30px] p-8 min-h-[280px]" style={{ backgroundColor: "var(--color-surface-1)" }}>
+                            <div
+                                className="md:col-span-3 rounded-[30px] p-8 min-h-[280px]"
+                                style={{
+                                    backgroundColor: "var(--color-surface-1)",
+                                }}
+                            >
                                 <div className="flex items-center gap-2 mb-4">
-                                    <span style={{ color: "var(--color-ink-muted)" }} className="text-sm">
+                                    <span
+                                        style={{
+                                            color: "var(--color-ink-muted)",
+                                        }}
+                                        className="text-sm"
+                                    >
                                         Achievements
                                     </span>
                                 </div>
@@ -336,8 +518,12 @@ export default async function Home() {
                                     Unlock achievements as you build
                                 </h3>
 
-                                <p className="mt-4 max-w-sm" style={{ color: "var(--color-ink-muted)" }}>
-                                    Hit streak milestones, log your first project, and earn badges.
+                                <p
+                                    className="mt-4 max-w-sm"
+                                    style={{ color: "var(--color-ink-muted)" }}
+                                >
+                                    Hit streak milestones, log your first
+                                    project, and earn badges.
                                 </p>
                             </div>
                         </div>
@@ -355,7 +541,13 @@ export default async function Home() {
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {/* Free Plan */}
-                            <div className="rounded-2xl p-8" style={{ backgroundColor: "var(--color-surface-1)", border: "1px solid var(--color-hairline)" }}>
+                            <div
+                                className="rounded-2xl p-8"
+                                style={{
+                                    backgroundColor: "var(--color-surface-1)",
+                                    border: "1px solid var(--color-hairline)",
+                                }}
+                            >
                                 <div className="mb-6">
                                     <h3
                                         className={`${plusJakarta.className} text-2xl font-semibold mb-2`}
@@ -363,104 +555,230 @@ export default async function Home() {
                                     >
                                         Free
                                     </h3>
-                                    <p style={{ color: "var(--color-ink-muted)" }}>
+                                    <p
+                                        style={{
+                                            color: "var(--color-ink-muted)",
+                                        }}
+                                    >
                                         Perfect for getting started
                                     </p>
                                     <div className="mt-4 flex items-baseline gap-1">
                                         <span
                                             className={`${plusJakarta.className} text-4xl font-bold`}
-                                            style={{ color: "var(--color-ink)" }}
+                                            style={{
+                                                color: "var(--color-ink)",
+                                            }}
                                         >
                                             $0
                                         </span>
-                                        <span style={{ color: "var(--color-ink-muted)" }}>
+                                        <span
+                                            style={{
+                                                color: "var(--color-ink-muted)",
+                                            }}
+                                        >
                                             /month
                                         </span>
                                     </div>
                                 </div>
                                 <ul className="space-y-3 mb-8">
-                                    <li className="flex items-center gap-3" style={{ color: "var(--color-ink-muted)" }}>
-                                        <div className="w-5 h-5 rounded-full border flex items-center justify-center shrink-0" style={{ borderColor: "var(--color-hairline)" }}>
+                                    <li
+                                        className="flex items-center gap-3"
+                                        style={{
+                                            color: "var(--color-ink-muted)",
+                                        }}
+                                    >
+                                        <div
+                                            className="w-5 h-5 rounded-full border flex items-center justify-center shrink-0"
+                                            style={{
+                                                borderColor:
+                                                    "var(--color-hairline)",
+                                            }}
+                                        >
                                             <div className="w-3 h-3 rounded-full bg-green-500" />
                                         </div>
                                         Up to 5 projects
                                     </li>
-                                    <li className="flex items-center gap-3" style={{ color: "var(--color-ink-muted)" }}>
-                                        <div className="w-5 h-5 rounded-full border flex items-center justify-center shrink-0" style={{ borderColor: "var(--color-hairline)" }}>
+                                    <li
+                                        className="flex items-center gap-3"
+                                        style={{
+                                            color: "var(--color-ink-muted)",
+                                        }}
+                                    >
+                                        <div
+                                            className="w-5 h-5 rounded-full border flex items-center justify-center shrink-0"
+                                            style={{
+                                                borderColor:
+                                                    "var(--color-hairline)",
+                                            }}
+                                        >
                                             <div className="w-3 h-3 rounded-full bg-green-500" />
                                         </div>
                                         Unlimited build logs
                                     </li>
-                                    <li className="flex items-center gap-3" style={{ color: "var(--color-ink-muted)" }}>
-                                        <div className="w-5 h-5 rounded-full border flex items-center justify-center shrink-0" style={{ borderColor: "var(--color-hairline)" }} />
+                                    <li
+                                        className="flex items-center gap-3"
+                                        style={{
+                                            color: "var(--color-ink-muted)",
+                                        }}
+                                    >
+                                        <div
+                                            className="w-5 h-5 rounded-full border flex items-center justify-center shrink-0"
+                                            style={{
+                                                borderColor:
+                                                    "var(--color-hairline)",
+                                            }}
+                                        />
                                         Public profile
                                     </li>
-                                    <li className="flex items-center gap-3" style={{ color: "var(--color-ink-muted)" }}>
-                                        <div className="w-5 h-5 rounded-full border flex items-center justify-center shrink-0" style={{ borderColor: "var(--color-hairline)" }} />
+                                    <li
+                                        className="flex items-center gap-3"
+                                        style={{
+                                            color: "var(--color-ink-muted)",
+                                        }}
+                                    >
+                                        <div
+                                            className="w-5 h-5 rounded-full border flex items-center justify-center shrink-0"
+                                            style={{
+                                                borderColor:
+                                                    "var(--color-hairline)",
+                                            }}
+                                        />
                                         No analytics
                                     </li>
                                 </ul>
                                 <Link
                                     href="/auth/signin"
                                     className="w-full py-3 px-4 rounded-full text-center font-semibold transition-colors"
-                                    style={{ backgroundColor: "var(--color-surface-2)", color: "var(--color-ink)" }}
+                                    style={{
+                                        backgroundColor:
+                                            "var(--color-surface-2)",
+                                        color: "var(--color-ink)",
+                                    }}
                                 >
                                     Get started
                                 </Link>
                             </div>
 
                             {/* Pro Plan */}
-                            <div className="relative overflow-hidden rounded-2xl p-8" style={{ backgroundColor: "var(--color-surface-2)" }}>
+                            <div
+                                className="relative overflow-hidden rounded-2xl p-8"
+                                style={{
+                                    backgroundColor: "var(--color-surface-2)",
+                                }}
+                            >
                                 <div className="relative z-10">
                                     <div className="mb-6">
                                         <div className="flex items-center gap-2 mb-2">
                                             <h3
                                                 className={`${plusJakarta.className} text-2xl font-semibold`}
-                                                style={{ color: "var(--color-ink)" }}
+                                                style={{
+                                                    color: "var(--color-ink)",
+                                                }}
                                             >
                                                 Pro
                                             </h3>
-                                            <span className="text-xs px-2 py-0.5 rounded-full" style={{ backgroundColor: "var(--color-surface-1)", color: "var(--color-ink)" }}>
+                                            <span
+                                                className="text-xs px-2 py-0.5 rounded-full"
+                                                style={{
+                                                    backgroundColor:
+                                                        "var(--color-surface-1)",
+                                                    color: "var(--color-ink)",
+                                                }}
+                                            >
                                                 Most popular
                                             </span>
                                         </div>
-                                        <p style={{ color: "var(--color-ink-muted)" }}>
+                                        <p
+                                            style={{
+                                                color: "var(--color-ink-muted)",
+                                            }}
+                                        >
                                             For serious builders
                                         </p>
                                         <div className="mt-4 flex items-baseline gap-1">
                                             <span
                                                 className={`${plusJakarta.className} text-4xl font-bold`}
-                                                style={{ color: "var(--color-ink)" }}
+                                                style={{
+                                                    color: "var(--color-ink)",
+                                                }}
                                             >
                                                 $5
                                             </span>
-                                            <span style={{ color: "var(--color-ink-muted)" }}>
+                                            <span
+                                                style={{
+                                                    color: "var(--color-ink-muted)",
+                                                }}
+                                            >
                                                 /month
                                             </span>
                                         </div>
                                     </div>
                                     <ul className="space-y-3 mb-8">
-                                        <li className="flex items-center gap-3" style={{ color: "var(--color-ink)" }}>
+                                        <li
+                                            className="flex items-center gap-3"
+                                            style={{
+                                                color: "var(--color-ink)",
+                                            }}
+                                        >
                                             <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center shrink-0">
-                                                <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "var(--color-ink)" }} />
+                                                <div
+                                                    className="w-3 h-3 rounded-full"
+                                                    style={{
+                                                        backgroundColor:
+                                                            "var(--color-ink)",
+                                                    }}
+                                                />
                                             </div>
                                             Unlimited projects
                                         </li>
-                                        <li className="flex items-center gap-3" style={{ color: "var(--color-ink)" }}>
+                                        <li
+                                            className="flex items-center gap-3"
+                                            style={{
+                                                color: "var(--color-ink)",
+                                            }}
+                                        >
                                             <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center shrink-0">
-                                                <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "var(--color-ink)" }} />
+                                                <div
+                                                    className="w-3 h-3 rounded-full"
+                                                    style={{
+                                                        backgroundColor:
+                                                            "var(--color-ink)",
+                                                    }}
+                                                />
                                             </div>
                                             Custom domain
                                         </li>
-                                        <li className="flex items-center gap-3" style={{ color: "var(--color-ink)" }}>
+                                        <li
+                                            className="flex items-center gap-3"
+                                            style={{
+                                                color: "var(--color-ink)",
+                                            }}
+                                        >
                                             <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center shrink-0">
-                                                <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "var(--color-ink)" }} />
+                                                <div
+                                                    className="w-3 h-3 rounded-full"
+                                                    style={{
+                                                        backgroundColor:
+                                                            "var(--color-ink)",
+                                                    }}
+                                                />
                                             </div>
                                             Profile analytics
                                         </li>
-                                        <li className="flex items-center gap-3" style={{ color: "var(--color-ink)" }}>
+                                        <li
+                                            className="flex items-center gap-3"
+                                            style={{
+                                                color: "var(--color-ink)",
+                                            }}
+                                        >
                                             <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center shrink-0">
-                                                <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "var(--color-ink)" }} />
+                                                <div
+                                                    className="w-3 h-3 rounded-full"
+                                                    style={{
+                                                        backgroundColor:
+                                                            "var(--color-ink)",
+                                                    }}
+                                                />
                                             </div>
                                             Priority support
                                         </li>
@@ -468,7 +786,11 @@ export default async function Home() {
                                     <Link
                                         href="/dashboard/billing"
                                         className="w-full py-3 px-4 rounded-full text-center font-semibold transition-opacity hover:opacity-90"
-                                        style={{ backgroundColor: "var(--color-primary)", color: "var(--color-canvas)" }}
+                                        style={{
+                                            backgroundColor:
+                                                "var(--color-primary)",
+                                            color: "var(--color-canvas)",
+                                        }}
                                     >
                                         Upgrade to Pro
                                     </Link>
@@ -480,9 +802,20 @@ export default async function Home() {
             </main>
 
             {/* Footer */}
-            <footer className="py-8 px-6" style={{ backgroundColor: "var(--color-canvas)", borderTop: "1px solid var(--color-hairline)" }}>
+            <footer
+                className="py-8 px-6"
+                style={{
+                    backgroundColor: "var(--color-canvas)",
+                    borderTop: "1px solid var(--color-hairline)",
+                }}
+            >
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
                     <Link href="/" className="flex items-center gap-2">
+                        <img
+                            src="/shiplog.png"
+                            alt="Shiplog Logo"
+                            className="w-7 h-7 object-contain"
+                        />
                         <span
                             className={`${plusJakarta.className} text-xl font-bold tracking-tight`}
                             style={{ color: "var(--color-ink)" }}
@@ -513,7 +846,10 @@ export default async function Home() {
                             Terms
                         </Link>
                     </div>
-                    <p className="text-xs" style={{ color: "var(--color-ink-muted)" }}>
+                    <p
+                        className="text-xs"
+                        style={{ color: "var(--color-ink-muted)" }}
+                    >
                         Built for developers
                     </p>
                 </div>
