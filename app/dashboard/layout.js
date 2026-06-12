@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useSession } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import { useEffect, useState } from "react";
 import {
     Home,
@@ -17,6 +17,9 @@ import {
     X,
     Shield,
     Wrench,
+    LogOut,
+    QrCode,
+    CreditCard as Card,
 } from "lucide-react";
 import {
     Tooltip,
@@ -37,6 +40,8 @@ const navLinks = [
         icon: BarChart3,
         isPro: true,
     },
+    { href: "/dashboard/qr-code", label: "QR Code", icon: QrCode, isPro: true },
+    { href: "/dashboard/mini-card", label: "Mini Card", icon: Card, isPro: true },
     { href: "/dashboard/billing", label: "Billing", icon: CreditCard },
     { href: "/dashboard/builder", label: "Builder", icon: Wrench },
     { href: "/dashboard/settings", label: "Settings", icon: Settings },
@@ -95,15 +100,22 @@ export default function DashboardLayout({ children }) {
                 }}
             >
                 <div className="p-6">
-                    <h1
-                        className="text-xl font-bold tracking-tight"
-                        style={{
-                            fontFamily: "var(--font-plus-jakarta-sans)",
-                            color: "var(--color-ink)",
-                        }}
-                    >
-                        Shiplog
-                    </h1>
+                    <Link href="/dashboard" className="flex items-center gap-3">
+                        <img
+                            src="/shiplog.png"
+                            alt="Shiplog Logo"
+                            className="w-8 h-8 object-contain"
+                        />
+                        <h1
+                            className="text-xl font-bold tracking-tight"
+                            style={{
+                                fontFamily: "var(--font-plus-jakarta-sans)",
+                                color: "var(--color-ink)",
+                            }}
+                        >
+                            Shiplog
+                        </h1>
+                    </Link>
                 </div>
 
                 <TooltipProvider>
@@ -193,48 +205,60 @@ export default function DashboardLayout({ children }) {
                 </TooltipProvider>
 
                 <div
-                    className="p-4 border-t"
+                    className="p-4 border-t space-y-2"
                     style={{ borderColor: "var(--color-hairline)" }}
                 >
                     {session?.user && (
-                        <div className="flex items-center gap-3">
-                            <div
-                                className="w-10 h-10 rounded-full overflow-hidden"
-                                style={{
-                                    backgroundColor: "var(--color-surface-1)",
-                                    border: "1px solid var(--color-hairline)",
-                                }}
-                            >
-                                <img
-                                    src={
-                                        user?.avatarUrl ||
-                                        session.user.avatarUrl ||
-                                        session.user.image ||
-                                        getDefaultAvatarUrl(
-                                            session.user.username,
-                                        )
-                                    }
-                                    alt=""
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
-                            <div className="flex-1 min-w-0">
-                                <p
-                                    className="text-sm font-medium truncate"
-                                    style={{ color: "var(--color-ink)" }}
-                                >
-                                    {session.user.name}
-                                </p>
-                                <p
-                                    className="text-xs truncate"
+                        <>
+                            <div className="flex items-center gap-3">
+                                <div
+                                    className="w-10 h-10 rounded-full overflow-hidden"
                                     style={{
-                                        color: "var(--color-ink-muted)",
+                                        backgroundColor:
+                                            "var(--color-surface-1)",
+                                        border: "1px solid var(--color-hairline)",
                                     }}
                                 >
-                                    @{session.user.username || "user"}
-                                </p>
+                                    <img
+                                        src={
+                                            user?.avatarUrl ||
+                                            session.user.avatarUrl ||
+                                            session.user.image ||
+                                            getDefaultAvatarUrl(
+                                                session.user.username,
+                                            )
+                                        }
+                                        alt=""
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                    <p
+                                        className="text-sm font-medium truncate"
+                                        style={{ color: "var(--color-ink)" }}
+                                    >
+                                        {session.user.name}
+                                    </p>
+                                    <p
+                                        className="text-xs truncate"
+                                        style={{
+                                            color: "var(--color-ink-muted)",
+                                        }}
+                                    >
+                                        @{session.user.username || "user"}
+                                    </p>
+                                </div>
                             </div>
-                        </div>
+                            <button
+                                onClick={() => signOut()}
+                                className="flex items-center gap-3 px-4 py-3 rounded-2xl transition-all duration-200 hover:bg-red-600 hover:text-white hover:cursor-pointer w-full"
+                            >
+                                <LogOut className="w-5 h-5" />
+                                <span className="text-sm font-medium">
+                                    Log out
+                                </span>
+                            </button>
+                        </>
                     )}
                 </div>
             </aside>
@@ -249,12 +273,17 @@ export default function DashboardLayout({ children }) {
             >
                 <Link
                     href="/dashboard"
-                    className="text-xl font-bold tracking-tight"
+                    className="flex items-center gap-2 text-xl font-bold tracking-tight"
                     style={{
                         fontFamily: "var(--font-plus-jakarta-sans)",
                         color: "var(--color-ink)",
                     }}
                 >
+                    <img
+                        src="/shiplog.png"
+                        alt="Shiplog Logo"
+                        className="w-7 h-7 object-contain"
+                    />
                     Shiplog
                 </Link>
                 <button
@@ -286,15 +315,26 @@ export default function DashboardLayout({ children }) {
                 }}
             >
                 <div className="p-6 flex items-center justify-between">
-                    <h1
-                        className="text-xl font-bold tracking-tight"
-                        style={{
-                            fontFamily: "var(--font-plus-jakarta-sans)",
-                            color: "var(--color-ink)",
-                        }}
+                    <Link
+                        href="/dashboard"
+                        className="flex items-center gap-3"
+                        onClick={() => setMobileMenuOpen(false)}
                     >
-                        Shiplog
-                    </h1>
+                        <img
+                            src="/shiplog.png"
+                            alt="Shiplog Logo"
+                            className="w-8 h-8 object-contain"
+                        />
+                        <h1
+                            className="text-xl font-bold tracking-tight"
+                            style={{
+                                fontFamily: "var(--font-plus-jakarta-sans)",
+                                color: "var(--color-ink)",
+                            }}
+                        >
+                            Shiplog
+                        </h1>
+                    </Link>
                     <button
                         onClick={() => setMobileMenuOpen(false)}
                         style={{ color: "var(--color-ink)" }}
@@ -371,48 +411,68 @@ export default function DashboardLayout({ children }) {
                 </nav>
 
                 <div
-                    className="p-4 border-t mt-auto"
+                    className="p-4 border-t mt-auto space-y-2"
                     style={{ borderColor: "var(--color-hairline)" }}
                 >
                     {session?.user && (
-                        <div className="flex items-center gap-3">
-                            <div
-                                className="w-10 h-10 rounded-full overflow-hidden"
-                                style={{
-                                    backgroundColor: "var(--color-surface-1)",
-                                    border: "1px solid var(--color-hairline)",
-                                }}
-                            >
-                                <img
-                                    src={
-                                        user?.avatarUrl ||
-                                        session.user.avatarUrl ||
-                                        session.user.image ||
-                                        getDefaultAvatarUrl(
-                                            session.user.username,
-                                        )
-                                    }
-                                    alt=""
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
-                            <div className="flex-1 min-w-0">
-                                <p
-                                    className="text-sm font-medium truncate"
-                                    style={{ color: "var(--color-ink)" }}
-                                >
-                                    {session.user.name}
-                                </p>
-                                <p
-                                    className="text-xs truncate"
+                        <>
+                            <div className="flex items-center gap-3">
+                                <div
+                                    className="w-10 h-10 rounded-full overflow-hidden"
                                     style={{
-                                        color: "var(--color-ink-muted)",
+                                        backgroundColor:
+                                            "var(--color-surface-1)",
+                                        border: "1px solid var(--color-hairline)",
                                     }}
                                 >
-                                    @{session.user.username || "user"}
-                                </p>
+                                    <img
+                                        src={
+                                            user?.avatarUrl ||
+                                            session.user.avatarUrl ||
+                                            session.user.image ||
+                                            getDefaultAvatarUrl(
+                                                session.user.username,
+                                            )
+                                        }
+                                        alt=""
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                    <p
+                                        className="text-sm font-medium truncate"
+                                        style={{ color: "var(--color-ink)" }}
+                                    >
+                                        {session.user.name}
+                                    </p>
+                                    <p
+                                        className="text-xs truncate"
+                                        style={{
+                                            color: "var(--color-ink-muted)",
+                                        }}
+                                    >
+                                        @{session.user.username || "user"}
+                                    </p>
+                                </div>
                             </div>
-                        </div>
+                            <button
+                                onClick={() => {
+                                    signOut();
+                                    setMobileMenuOpen(false);
+                                }}
+                                className="flex items-center gap-3 px-4 py-3 rounded-2xl transition-all duration-200 w-full"
+                                style={{
+                                    backgroundColor: "transparent",
+                                    color: "var(--color-ink-muted)",
+                                    border: "1px solid transparent",
+                                }}
+                            >
+                                <LogOut className="w-5 h-5" />
+                                <span className="text-sm font-medium">
+                                    Log out
+                                </span>
+                            </button>
+                        </>
                     )}
                 </div>
             </aside>
