@@ -41,7 +41,6 @@ const navLinks = [
         isPro: true,
     },
     { href: "/dashboard/qr-code", label: "QR Code", icon: QrCode, isPro: true },
-    { href: "/dashboard/mini-card", label: "Mini Card", icon: Card, isPro: true },
     { href: "/dashboard/billing", label: "Billing", icon: CreditCard },
     { href: "/dashboard/builder", label: "Builder", icon: Wrench },
     { href: "/dashboard/settings", label: "Settings", icon: Settings },
