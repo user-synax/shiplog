@@ -341,6 +341,63 @@ const LOGS_CSS = `
     color: var(--ink-muted);
   }
 
+  /* ── GitHub commit info ── */
+  .lc-github-commit {
+    margin-top: 12px;
+    padding: 12px;
+    background: var(--surface-2);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-md);
+  }
+  .lc-github-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .lc-github-repo {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--ink);
+  }
+  .lc-github-branch {
+    font-size: 12px;
+    color: var(--ink-muted);
+    padding: 2px 8px;
+    background: var(--surface-3);
+    border-radius: var(--r-pill);
+  }
+  .lc-github-hash {
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+    font-size: 12px;
+    color: var(--ink-muted);
+  }
+  .lc-github-files {
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .lc-github-file {
+    font-size: 11px;
+    padding: 3px 8px;
+    background: var(--surface-3);
+    border-radius: var(--r-sm);
+    color: var(--ink-muted);
+  }
+  .lc-github-link {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-size: 12px;
+    margin-top: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .lc-github-link:hover {
+    text-decoration: underline;
+  }
+
   /* ── Delete button ── */
   .lc-delete-btn {
     display: inline-flex;
@@ -415,21 +472,32 @@ const LOGS_CSS = `
 ───────────────────────────────── */
 const MOOD_OPTIONS = [
     { value: "productive", emoji: "🚀", label: "Productive" },
-    { value: "stuck",      emoji: "😵", label: "Stuck"      },
-    { value: "learning",   emoji: "📚", label: "Learning"   },
-    { value: "shipping",   emoji: "🎉", label: "Shipping"   },
-    { value: "grinding",   emoji: "💪", label: "Grinding"   },
+    { value: "stuck", emoji: "😵", label: "Stuck" },
+    { value: "learning", emoji: "📚", label: "Learning" },
+    { value: "shipping", emoji: "🎉", label: "Shipping" },
+    { value: "grinding", emoji: "💪", label: "Grinding" },
 ];
 
 const getMoodOption = (value) =>
-    MOOD_OPTIONS.find((m) => m.value === value) || { emoji: "📝", label: "Log" };
+    MOOD_OPTIONS.find((m) => m.value === value) || {
+        emoji: "📝",
+        label: "Log",
+    };
 
 /* ─────────────────────────────────
    SVG icons
 ───────────────────────────────── */
 const IconCheckCircle = () => (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-         stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#22c55e"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+    >
         <polyline points="20 6 9 17 4 12" />
     </svg>
 );
@@ -441,10 +509,10 @@ export default function LogsClient({ initialLogs, userLastLogDate }) {
     const { logs, setLogs, addLog, removeLog, hasMore, currentPage } =
         useLogsStore();
 
-    const [content,     setContent]     = useState("");
-    const [mood,        setMood]        = useState("productive");
-    const [tags,        setTags]        = useState("");
-    const [isSubmitting,setIsSubmitting]= useState(false);
+    const [content, setContent] = useState("");
+    const [mood, setMood] = useState("productive");
+    const [tags, setTags] = useState("");
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const [loadingMore, setLoadingMore] = useState(false);
 
     useEffect(() => {
@@ -471,7 +539,10 @@ export default function LogsClient({ initialLogs, userLastLogDate }) {
                 body: JSON.stringify({
                     content: content.trim(),
                     mood,
-                    tags: tags.split(",").map((t) => t.trim()).filter(Boolean),
+                    tags: tags
+                        .split(",")
+                        .map((t) => t.trim())
+                        .filter(Boolean),
                 }),
             });
             if (res.ok) {
@@ -497,7 +568,7 @@ export default function LogsClient({ initialLogs, userLastLogDate }) {
         setLoadingMore(true);
         try {
             const nextPage = currentPage + 1;
-            const res  = await fetch(`/api/logs?page=${nextPage}&limit=20`);
+            const res = await fetch(`/api/logs?page=${nextPage}&limit=20`);
             const data = await res.json();
             setLogs([...logs, ...data.logs], data.hasMore, nextPage);
         } finally {
@@ -511,15 +582,22 @@ export default function LogsClient({ initialLogs, userLastLogDate }) {
 
             <div className="lc-root">
                 <div className="lc-page">
-
                     {/* ── Page header ── */}
                     <div className="lc-header">
                         <h1 className="lc-title">Build Logs</h1>
                         <div className="lc-streak-chip">
-                            {alreadyLoggedToday
-                                ? <><span>✓</span> Logged today</>
-                                : <><span style={{ color: "var(--ink-faint)" }}>○</span> Not yet logged</>
-                            }
+                            {alreadyLoggedToday ? (
+                                <>
+                                    <span>✓</span> Logged today
+                                </>
+                            ) : (
+                                <>
+                                    <span style={{ color: "var(--ink-faint)" }}>
+                                        ○
+                                    </span>{" "}
+                                    Not yet logged
+                                </>
+                            )}
                         </div>
                     </div>
 
@@ -531,12 +609,42 @@ export default function LogsClient({ initialLogs, userLastLogDate }) {
                         <form onSubmit={handleSubmit}>
                             {/* Already logged today indicator */}
                             {alreadyLoggedToday && (
-                                <div style={{ marginBottom: 16, paddingBottom: 16, borderBottom: '1px solid var(--hairline)' }}>
-                                    <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--ink-muted)', fontSize: 13 }}>
-                                        <div style={{ width: 20, height: 20, borderRadius: '50%', background: 'rgba(34,197,94,0.12)', border: '1px solid rgba(34,197,94,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                <div
+                                    style={{
+                                        marginBottom: 16,
+                                        paddingBottom: 16,
+                                        borderBottom:
+                                            "1px solid var(--hairline)",
+                                    }}
+                                >
+                                    <div
+                                        style={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                            gap: 8,
+                                            color: "var(--ink-muted)",
+                                            fontSize: 13,
+                                        }}
+                                    >
+                                        <div
+                                            style={{
+                                                width: 20,
+                                                height: 20,
+                                                borderRadius: "50%",
+                                                background:
+                                                    "rgba(34,197,94,0.12)",
+                                                border: "1px solid rgba(34,197,94,0.2)",
+                                                display: "flex",
+                                                alignItems: "center",
+                                                justifyContent: "center",
+                                            }}
+                                        >
                                             <IconCheckCircle />
                                         </div>
-                                        <span>You&apos;ve logged today — add another log!</span>
+                                        <span>
+                                            You&apos;ve logged today — add
+                                            another log!
+                                        </span>
                                     </div>
                                 </div>
                             )}
@@ -545,7 +653,9 @@ export default function LogsClient({ initialLogs, userLastLogDate }) {
                             <div className="lc-field">
                                 <div className="lc-label">
                                     <span>What did you build today?</span>
-                                    <span className="lc-char-count">{content.length} / 500</span>
+                                    <span className="lc-char-count">
+                                        {content.length} / 500
+                                    </span>
                                 </div>
                                 <textarea
                                     className="lc-textarea"
@@ -571,8 +681,12 @@ export default function LogsClient({ initialLogs, userLastLogDate }) {
                                             className={`lc-mood-btn ${mood === m.value ? "lc-mood-btn-active" : ""}`}
                                             title={m.label}
                                         >
-                                            <span className="lc-mood-emoji">{m.emoji}</span>
-                                            <span className="lc-mood-label">{m.label}</span>
+                                            <span className="lc-mood-emoji">
+                                                {m.emoji}
+                                            </span>
+                                            <span className="lc-mood-label">
+                                                {m.label}
+                                            </span>
                                         </button>
                                     ))}
                                 </div>
@@ -610,7 +724,8 @@ export default function LogsClient({ initialLogs, userLastLogDate }) {
                             <div className="lc-section-divider">
                                 <div className="lc-section-divider-line" />
                                 <span className="lc-section-divider-label">
-                                    {logs.length} {logs.length === 1 ? "entry" : "entries"}
+                                    {logs.length}{" "}
+                                    {logs.length === 1 ? "entry" : "entries"}
                                 </span>
                                 <div className="lc-section-divider-line" />
                             </div>
@@ -619,34 +734,148 @@ export default function LogsClient({ initialLogs, userLastLogDate }) {
                                 {logs.map((log) => {
                                     const moodOpt = getMoodOption(log.mood);
                                     return (
-                                        <div key={log._id} className="lc-log-card">
+                                        <div
+                                            key={log._id}
+                                            className="lc-log-card"
+                                        >
                                             <div className="lc-log-body">
                                                 {/* Meta: mood badge + date */}
                                                 <div className="lc-log-meta">
                                                     <span className="lc-log-mood-badge">
-                                                        <span className="lc-log-mood-badge-emoji">{moodOpt.emoji}</span>
+                                                        <span className="lc-log-mood-badge-emoji">
+                                                            {moodOpt.emoji}
+                                                        </span>
                                                         {moodOpt.label}
                                                     </span>
                                                     <span className="lc-log-date">
-                                                        {new Date(log.createdAt).toLocaleDateString("en-US", {
-                                                            month: "short",
-                                                            day: "numeric",
-                                                            year: "numeric",
-                                                        })}
+                                                        {new Date(
+                                                            log.createdAt,
+                                                        ).toLocaleDateString(
+                                                            "en-US",
+                                                            {
+                                                                month: "short",
+                                                                day: "numeric",
+                                                                year: "numeric",
+                                                            },
+                                                        )}
                                                     </span>
                                                 </div>
 
                                                 {/* Content */}
-                                                <p className="lc-log-content">{log.content}</p>
+                                                <p className="lc-log-content">
+                                                    {log.content}
+                                                </p>
 
                                                 {/* Tags */}
                                                 {log.tags?.length > 0 && (
                                                     <div className="lc-tags">
                                                         {log.tags.map((tag) => (
-                                                            <span key={tag} className="lc-tag">
+                                                            <span
+                                                                key={tag}
+                                                                className="lc-tag"
+                                                            >
                                                                 {tag}
                                                             </span>
                                                         ))}
+                                                    </div>
+                                                )}
+
+                                                {/* GitHub Commit Info */}
+                                                {log.githubCommit && (
+                                                    <div className="lc-github-commit">
+                                                        <div className="lc-github-header">
+                                                            <svg
+                                                                width="16"
+                                                                height="16"
+                                                                viewBox="0 0 24 24"
+                                                                fill="currentColor"
+                                                                style={{
+                                                                    color: "var(--ink-muted)",
+                                                                }}
+                                                            >
+                                                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                                            </svg>
+                                                            <span className="lc-github-repo">
+                                                                {log
+                                                                    .githubCommit
+                                                                    .repository
+                                                                    ?.fullName ||
+                                                                    log
+                                                                        .githubCommit
+                                                                        .repository
+                                                                        ?.name}
+                                                            </span>
+                                                            {log.githubCommit
+                                                                .branch && (
+                                                                <span className="lc-github-branch">
+                                                                    {
+                                                                        log
+                                                                            .githubCommit
+                                                                            .branch
+                                                                    }
+                                                                </span>
+                                                            )}
+                                                            <span className="lc-github-hash">
+                                                                {log.githubCommit.commitHash?.substring(
+                                                                    0,
+                                                                    7,
+                                                                )}
+                                                            </span>
+                                                        </div>
+                                                        {log.githubCommit.files
+                                                            ?.length > 0 && (
+                                                            <div className="lc-github-files">
+                                                                {log.githubCommit.files
+                                                                    .slice(0, 5)
+                                                                    .map(
+                                                                        (
+                                                                            file,
+                                                                            idx,
+                                                                        ) => (
+                                                                            <span
+                                                                                key={
+                                                                                    idx
+                                                                                }
+                                                                                className="lc-github-file"
+                                                                            >
+                                                                                {
+                                                                                    file.filename
+                                                                                }
+                                                                            </span>
+                                                                        ),
+                                                                    )}
+                                                                {log
+                                                                    .githubCommit
+                                                                    .files
+                                                                    .length >
+                                                                    5 && (
+                                                                    <span className="lc-github-file">
+                                                                        +
+                                                                        {log
+                                                                            .githubCommit
+                                                                            .files
+                                                                            .length -
+                                                                            5}{" "}
+                                                                        more
+                                                                    </span>
+                                                                )}
+                                                            </div>
+                                                        )}
+                                                        {log.githubCommit
+                                                            .htmlUrl && (
+                                                            <a
+                                                                href={
+                                                                    log
+                                                                        .githubCommit
+                                                                        .htmlUrl
+                                                                }
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                className="lc-github-link"
+                                                            >
+                                                                View on GitHub →
+                                                            </a>
+                                                        )}
                                                     </div>
                                                 )}
                                             </div>
@@ -654,7 +883,9 @@ export default function LogsClient({ initialLogs, userLastLogDate }) {
                                             {/* Delete */}
                                             <button
                                                 className="lc-delete-btn"
-                                                onClick={() => handleDelete(log._id)}
+                                                onClick={() =>
+                                                    handleDelete(log._id)
+                                                }
                                                 title="Delete log"
                                             >
                                                 <span>Delete</span>
@@ -671,7 +902,9 @@ export default function LogsClient({ initialLogs, userLastLogDate }) {
                                     onClick={handleLoadMore}
                                     disabled={loadingMore}
                                 >
-                                    {loadingMore ? "Loading…" : "Load more logs"}
+                                    {loadingMore
+                                        ? "Loading…"
+                                        : "Load more logs"}
                                 </button>
                             )}
                         </>
@@ -680,10 +913,10 @@ export default function LogsClient({ initialLogs, userLastLogDate }) {
                     {/* Empty state */}
                     {logs.length === 0 && !alreadyLoggedToday && (
                         <div className="lc-empty">
-                            No logs yet. Write your first entry above to start the streak.
+                            No logs yet. Write your first entry above to start
+                            the streak.
                         </div>
                     )}
-
                 </div>
             </div>
         </>
