@@ -105,10 +105,10 @@ export default async function Home() {
                         </div>
 
                         {/* Mock Profile Preview */}
-                        <div className="mt-20 max-w-2xl mx-auto w-full">
+                        <div className="mt-20 max-w-2xl mx-auto w-full px-1">
                             {/* Browser Top */}
                             <div
-                                className="rounded-t-3xl border p-4 backdrop-blur-xl"
+                                className="rounded-t-3xl border p-3 sm:p-4 backdrop-blur-xl"
                                 style={{
                                     backgroundColor: "rgba(26,26,26,0.8)",
                                     borderColor: "var(--color-hairline)",
@@ -137,9 +137,9 @@ export default async function Home() {
                                         }}
                                     />
 
-                                    <div className="flex-1 mx-4">
+                                    <div className="flex-1 mx-2 sm:mx-4">
                                         <div
-                                            className="rounded-full px-4 py-2 text-xs text-center"
+                                            className="rounded-full px-3 sm:px-4 py-2 text-xs text-center"
                                             style={{
                                                 backgroundColor:
                                                     "var(--color-surface-1)",
@@ -155,14 +155,14 @@ export default async function Home() {
 
                             {/* Browser Content */}
                             <div
-                                className="rounded-b-3xl border-x border-b p-8"
+                                className="rounded-b-3xl border-x border-b p-4 sm:p-8"
                                 style={{
                                     backgroundColor: "var(--color-surface-1)",
                                     borderColor: "var(--color-hairline)",
                                 }}
                             >
                                 <div
-                                    className="rounded-3xl border p-8 relative overflow-hidden"
+                                    className="rounded-3xl border p-4 sm:p-8 relative overflow-hidden"
                                     style={{
                                         backgroundColor: "var(--color-canvas)",
                                         borderColor: "var(--color-hairline)",
@@ -175,7 +175,7 @@ export default async function Home() {
                                                 <img
                                                     src="https://api.dicebear.com/9.x/notionists/svg?seed=Alex"
                                                     alt="avatar"
-                                                    className="w-24 h-24 rounded-full border-2"
+                                                    className="w-16 h-16 sm:w-24 sm:h-24 rounded-full border-2"
                                                     style={{
                                                         borderColor:
                                                             "var(--color-hairline)",
@@ -185,9 +185,9 @@ export default async function Home() {
                                                 />
                                             </div>
 
-                                            <div className="mt-5">
+                                            <div className="mt-4">
                                                 <h3
-                                                    className={`${plusJakarta.className} text-2xl font-semibold`}
+                                                    className={`${plusJakarta.className} text-xl sm:text-2xl font-semibold`}
                                                     style={{
                                                         color: "var(--color-ink)",
                                                     }}
@@ -218,16 +218,16 @@ export default async function Home() {
                                         </div>
 
                                         {/* Streak & Stats */}
-                                        <div className="grid grid-cols-3 gap-3 mt-6">
+                                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-6">
                                             <div
-                                                className="rounded-2xl p-4 text-center"
+                                                className="rounded-2xl p-3 sm:p-4 text-center"
                                                 style={{
                                                     backgroundColor:
                                                         "var(--color-surface-1)",
                                                 }}
                                             >
                                                 <p
-                                                    className="text-2xl font-bold"
+                                                    className="text-xl sm:text-2xl font-bold"
                                                     style={{
                                                         color: "var(--color-ink)",
                                                     }}
@@ -244,14 +244,14 @@ export default async function Home() {
                                                 </p>
                                             </div>
                                             <div
-                                                className="rounded-2xl p-4 text-center"
+                                                className="rounded-2xl p-3 sm:p-4 text-center"
                                                 style={{
                                                     backgroundColor:
                                                         "var(--color-surface-1)",
                                                 }}
                                             >
                                                 <p
-                                                    className="text-2xl font-bold"
+                                                    className="text-xl sm:text-2xl font-bold"
                                                     style={{
                                                         color: "var(--color-ink)",
                                                     }}
@@ -268,14 +268,14 @@ export default async function Home() {
                                                 </p>
                                             </div>
                                             <div
-                                                className="rounded-2xl p-4 text-center"
+                                                className="rounded-2xl p-3 sm:p-4 text-center"
                                                 style={{
                                                     backgroundColor:
                                                         "var(--color-surface-1)",
                                                 }}
                                             >
                                                 <p
-                                                    className="text-2xl font-bold"
+                                                    className="text-xl sm:text-2xl font-bold"
                                                     style={{
                                                         color: "var(--color-ink)",
                                                     }}
