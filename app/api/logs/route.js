@@ -3,6 +3,7 @@ import { auth } from "@/auth";
 import dbConnect from "@/lib/db";
 import User from "@/models/User";
 import BuildLog from "@/models/BuildLog";
+import GitHubCommit from "@/models/GitHubCommit";
 
 export const runtime = "nodejs";
 
@@ -24,10 +25,29 @@ export async function GET(request) {
         .skip(skip)
         .limit(limit)
         .lean();
+    
+    // Get GitHub commits for these logs
+    const logIds = logs.map(log => log._id);
+    const commits = await GitHubCommit.find({ buildLogId: { $in: logIds } }).lean();
+    
+    // Create a map of commit by buildLogId
+    const commitMap = {};
+    commits.forEach(commit => {
+        if (commit.buildLogId) {
+            commitMap[commit.buildLogId.toString()] = commit;
+        }
+    });
+    
+    // Attach commits to logs
+    const logsWithCommits = logs.map(log => ({
+        ...log,
+        githubCommit: commitMap[log._id.toString()] || null
+    }));
+    
     const totalLogs = await BuildLog.countDocuments({ userId: user._id });
 
     return NextResponse.json({
-        logs,
+        logs: logsWithCommits,
         hasMore: totalLogs > page * limit,
     });
 }
