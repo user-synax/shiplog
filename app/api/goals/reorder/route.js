@@ -1,6 +1,6 @@
 import { auth } from "@/auth";
-import connectDB from "../../../lib/db";
-import Goal from "../../../models/Goal";
+import connectDB from "../../../../lib/db";
+import Goal from "../../../../models/Goal";
 
 export const runtime = "nodejs";
 
