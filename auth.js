@@ -8,7 +8,10 @@ import { isAdminEmail } from "./lib/utils";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
     providers: [
-        Google,
+        Google({
+            clientId: process.env.GOOGLE_CLIENT_ID,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+        }),
         Credentials({
             name: "Credentials",
             credentials: {
@@ -74,7 +77,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             // Check admin status
             const emailToCheck = user?.email || token.email;
             token.isAdmin = isAdminEmail(emailToCheck);
-            
+
             if (user) {
                 token.id = user.id;
                 token.username = user.username;
