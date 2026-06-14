@@ -439,163 +439,464 @@ const CATEGORIES = ["language", "framework", "database", "tool", "other"];
 
 // Curated Tech Icon Library
 const TECH_ICONS = [
-  // Languages
-  { id: "js", name: "js", category: "language", color: "#F7DF1E", icon: "js" },
-  { id: "typescript", name: "TypeScript", category: "language", color: "#3178C6", icon: "ts" },
-  { id: "python", name: "Python", category: "language", color: "#3776AB", icon: "py" },
-  { id: "rust", name: "Rust", category: "language", color: "#000000", icon: "rs" },
-  { id: "go", name: "Go", category: "language", color: "#00ADD8", icon: "go" },
-  { id: "java", name: "Java", category: "language", color: "#007396", icon: "java" },
-  { id: "csharp", name: "C#", category: "language", color: "#512BD4", icon: "cs" },
-  { id: "cpp", name: "C++", category: "language", color: "#00599C", icon: "cpp" },
-  { id: "c", name: "C", category: "language", color: "#A8B9CC", icon: "c" },
-  { id: "php", name: "PHP", category: "language", color: "#777BB4", icon: "php" },
-  { id: "ruby", name: "Ruby", category: "language", color: "#CC342D", icon: "rb" },
-  { id: "kotlin", name: "Kotlin", category: "language", color: "#7F52FF", icon: "kt" },
-  { id: "swift", name: "Swift", category: "language", color: "#F05138", icon: "swift" },
-  { id: "dart", name: "Dart", category: "language", color: "#0175C2", icon: "dart" },
+    // Languages
+    {
+        id: "js",
+        name: "js",
+        category: "language",
+        color: "#F7DF1E",
+        icon: "js",
+    },
+    {
+        id: "typescript",
+        name: "TypeScript",
+        category: "language",
+        color: "#3178C6",
+        icon: "ts",
+    },
+    {
+        id: "python",
+        name: "Python",
+        category: "language",
+        color: "#3776AB",
+        icon: "py",
+    },
+    {
+        id: "rust",
+        name: "Rust",
+        category: "language",
+        color: "#000000",
+        icon: "rs",
+    },
+    {
+        id: "go",
+        name: "Go",
+        category: "language",
+        color: "#00ADD8",
+        icon: "go",
+    },
+    {
+        id: "java",
+        name: "Java",
+        category: "language",
+        color: "#007396",
+        icon: "java",
+    },
+    {
+        id: "csharp",
+        name: "C#",
+        category: "language",
+        color: "#512BD4",
+        icon: "cs",
+    },
+    {
+        id: "c++",
+        name: "c++",
+        category: "language",
+        color: "#00599C",
+        icon: "cpp",
+    },
+    {
+        id: "php",
+        name: "PHP",
+        category: "language",
+        color: "#777BB4",
+        icon: "php",
+    },
+    {
+        id: "ruby",
+        name: "Ruby",
+        category: "language",
+        color: "#CC342D",
+        icon: "rb",
+    },
+    {
+        id: "kotlin",
+        name: "Kotlin",
+        category: "language",
+        color: "#7F52FF",
+        icon: "kt",
+    },
+    {
+        id: "swift",
+        name: "Swift",
+        category: "language",
+        color: "#F05138",
+        icon: "swift",
+    },
+    {
+        id: "dart",
+        name: "Dart",
+        category: "language",
+        color: "#0175C2",
+        icon: "dart",
+    },
 
-  // Frameworks
-  { id: "react", name: "React", category: "framework", color: "#61DAFB", icon: "react" },
-  { id: "nextjs", name: "Next.js", category: "framework", color: "#000000", icon: "next" },
-  { id: "vuejs", name: "Vue.js", category: "framework", color: "#4FC08D", icon: "vue" },
-  { id: "angular", name: "Angular", category: "framework", color: "#DD0031", icon: "ng" },
-  { id: "svelte", name: "Svelte", category: "framework", color: "#FF3E00", icon: "svelte" },
-  { id: "express", name: "Express", category: "framework", color: "#000000", icon: "express" },
-  { id: "django", name: "Django", category: "framework", color: "#092E20", icon: "django" },
-  { id: "flask", name: "Flask", category: "framework", color: "#000000", icon: "flask" },
-  { id: "spring", name: "Spring", category: "framework", color: "#6DB33F", icon: "spring" },
-  { id: "tailwind", name: "Tailwind CSS", category: "framework", color: "#06B6D4", icon: "tw" },
-  { id: "bootstrap", name: "Bootstrap", category: "framework", color: "#7952B3", icon: "bs" },
+    // Frameworks
+    {
+        id: "react",
+        name: "React",
+        category: "framework",
+        color: "#61DAFB",
+        icon: "react",
+    },
+    {
+        id: "nextjs",
+        name: "Next.js",
+        category: "framework",
+        color: "#000000",
+        icon: "next",
+    },
+    {
+        id: "vuejs",
+        name: "Vue.js",
+        category: "framework",
+        color: "#4FC08D",
+        icon: "vue",
+    },
+    {
+        id: "angular",
+        name: "Angular",
+        category: "framework",
+        color: "#DD0031",
+        icon: "ng",
+    },
+    {
+        id: "sveltejs",
+        name: "Svelte",
+        category: "framework",
+        color: "#FF3E00",
+        icon: "svelte",
+    },
+    {
+        id: "expressjs",
+        name: "Express.js",
+        category: "framework",
+        color: "#000000",
+        icon: "express",
+    },
+    {
+        id: "django",
+        name: "Django",
+        category: "framework",
+        color: "#092E20",
+        icon: "django",
+    },
+    {
+        id: "flask",
+        name: "Flask",
+        category: "framework",
+        color: "#000000",
+        icon: "flask",
+    },
+    {
+        id: "spring",
+        name: "Spring",
+        category: "framework",
+        color: "#6DB33F",
+        icon: "spring",
+    },
+    {
+        id: "tailwindcss",
+        name: "Tailwind CSS",
+        category: "framework",
+        color: "#06B6D4",
+        icon: "tw",
+    },
+    {
+        id: "bootstrap4",
+        name: "Bootstrap",
+        category: "framework",
+        color: "#7952B3",
+        icon: "bs",
+    },
 
-  // Databases
-  { id: "postgresql", name: "PostgreSQL", category: "database", color: "#4169E1", icon: "pg" },
-  { id: "mongodb", name: "MongoDB", category: "database", color: "#47A248", icon: "mongo" },
-  { id: "mysql", name: "MySQL", category: "database", color: "#4479A1", icon: "mysql" },
-  { id: "sqlite", name: "SQLite", category: "database", color: "#003B57", icon: "sqlite" },
-  { id: "redis", name: "Redis", category: "database", color: "#DC382D", icon: "redis" },
-  { id: "supabase", name: "Supabase", category: "database", color: "#3ECF8E", icon: "supabase" },
-  { id: "firebase", name: "Firebase", category: "database", color: "#FFCA28", icon: "firebase" },
+    // Databases
+    {
+        id: "postgresql",
+        name: "PostgreSQL",
+        category: "database",
+        color: "#4169E1",
+        icon: "pg",
+    },
+    {
+        id: "mongodb",
+        name: "MongoDB",
+        category: "database",
+        color: "#47A248",
+        icon: "mongo",
+    },
+    {
+        id: "mysql",
+        name: "MySQL",
+        category: "database",
+        color: "#4479A1",
+        icon: "mysql",
+    },
+    {
+        id: "sqlite",
+        name: "SQLite",
+        category: "database",
+        color: "#003B57",
+        icon: "sqlite",
+    },
+    {
+        id: "redis",
+        name: "Redis",
+        category: "database",
+        color: "#DC382D",
+        icon: "redis",
+    },
+    {
+        id: "supabase",
+        name: "Supabase",
+        category: "database",
+        color: "#3ECF8E",
+        icon: "supabase",
+    },
+    {
+        id: "firebase",
+        name: "Firebase",
+        category: "database",
+        color: "#FFCA28",
+        icon: "firebase",
+    },
 
-  // Tools
-  { id: "git", name: "Git", category: "tool", color: "#F05032", icon: "git" },
-  { id: "github", name: "GitHub", category: "tool", color: "#181717", icon: "gh" },
-  { id: "docker", name: "Docker", category: "tool", color: "#2496ED", icon: "docker" },
-  { id: "kubernetes", name: "Kubernetes", category: "tool", color: "#326CE5", icon: "k8s" },
-  { id: "aws", name: "AWS", category: "tool", color: "#FF9900", icon: "aws" },
-  { id: "figma", name: "Figma", category: "tool", color: "#F24E1E", icon: "figma" },
-  { id: "vscode", name: "VS Code", category: "tool", color: "#007ACC", icon: "vscode" },
-  { id: "linux", name: "Linux", category: "tool", color: "#FCC624", icon: "linux" },
-  { id: "windows", name: "Windows", category: "tool", color: "#0078D4", icon: "win" },
-  { id: "macos", name: "macOS", category: "tool", color: "#000000", icon: "mac" },
-  { id: "nodejs", name: "Node.js", category: "tool", color: "#5FA04E", icon: "node" },
-  { id: "npm", name: "npm", category: "tool", color: "#CB3837", icon: "npm" },
-  { id: "yarn", name: "Yarn", category: "tool", color: "#2C8EBB", icon: "yarn" },
-  { id: "pnpm", name: "pnpm", category: "tool", color: "#F69220", icon: "pnpm" },
+    // Tools
+    { id: "git", name: "Git", category: "tool", color: "#F05032", icon: "git" },
+    {
+        id: "github",
+        name: "GitHub",
+        category: "tool",
+        color: "#181717",
+        icon: "gh",
+    },
+    {
+        id: "docker",
+        name: "Docker",
+        category: "tool",
+        color: "#2496ED",
+        icon: "docker",
+    },
+    {
+        id: "kubernetes",
+        name: "Kubernetes",
+        category: "tool",
+        color: "#326CE5",
+        icon: "k8s",
+    },
+    { id: "aws", name: "AWS", category: "tool", color: "#FF9900", icon: "aws" },
+    {
+        id: "figma",
+        name: "Figma",
+        category: "tool",
+        color: "#F24E1E",
+        icon: "figma",
+    },
+    {
+        id: "vscode",
+        name: "VS Code",
+        category: "tool",
+        color: "#007ACC",
+        icon: "vscode",
+    },
+    {
+        id: "linux",
+        name: "Linux",
+        category: "tool",
+        color: "#FCC624",
+        icon: "linux",
+    },
+    {
+        id: "android",
+        name: "Android",
+        category: "tool",
+        color: "#0078D4",
+        icon: "android",
+    },
+    {
+        id: "astro",
+        name: "Astro",
+        category: "tool",
+        color: "#000000",
+        icon: "astro",
+    },
+    {
+        id: "nodejs",
+        name: "Node.js",
+        category: "tool",
+        color: "#5FA04E",
+        icon: "node",
+    },
+    { id: "npm", name: "npm", category: "tool", color: "#CB3837", icon: "npm" },
+    {
+        id: "yarn",
+        name: "Yarn",
+        category: "tool",
+        color: "#2C8EBB",
+        icon: "yarn",
+    },
+    {
+        id: "pnpm",
+        name: "pnpm",
+        category: "tool",
+        color: "#F69220",
+        icon: "pnpm",
+    },
+        {
+        id: "bunjs",
+        name: "bun",
+        category: "tool",
+        color: "#F69220",
+        icon: "bun",
+    },
 ];
 
 // SVG icon components for each tech
 const TechIcon = ({ id, size = 32 }) => {
-  const icons = {
-    js: (
-      <svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor">
-        <path d="M12.173 17.722c-.376.627-.789 1.114-1.601 1.114-.812 0-1.27-.41-1.27-1.053 0-.718.573-1.045 1.45-1.51l.366-.196c2.128-1.114 3.553-2.267 3.553-4.635 0-2.318-1.842-4.045-4.912-4.045-2.094 0-3.427.846-4.374 2.254l1.98 1.255c.441-.718.965-1.27 1.98-1.27.812 0 1.332.47 1.332 1.066 0 .683-.376 1.008-1.332 1.51l-.366.196c-2.365 1.24-3.692 2.443-3.692 4.66 0 2.618 2.052 4.213 5.013 4.213 2.268 0 3.603-.86 4.55-2.491l-2.139-1.341zM24 0H0v24h24V0z"/>
-      </svg>
-    ),
-    ts: (
-      <svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor">
-        <path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.649-.303 5.527 5.527 0 0 0-.85-.11 9.762 9.762 0 0 0-.782.03v2.538a21.41 21.41 0 0 1 .782.03 5.527 5.527 0 0 0 .85-.11 3.95 3.95 0 0 0 .649-.303v2.522a6.239 6.239 0 0 1-1.306.341c-.473.075-1.015.112-1.627.112V9.75zm-7.5 0c.539 0 1.03.036 1.474.11a5.899 5.899 0 0 1 1.199.341v2.458a4.2 4.2 0 0 0-.593-.304 5.07 5.07 0 0 0-.777-.11 8.701 8.701 0 0 0-.708.03v7.59h-2.55V12.274a8.44 8.44 0 0 0-.707-.03 5.07 5.07 0 0 0-.778.11 4.199 4.199 0 0 0-.592.304v-2.522a5.899 5.899 0 0 1 1.199-.341c.444-.074.935-.11 1.474-.11z"/>
-      </svg>
-    ),
-    py: (
-      <svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor">
-        <path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.07.07-.07-.17.06-.07h.17h8.15l.69-.05.59-.14.5-.21.4-.27.3-.32.2-.35.1-.35.06-.2.02-.1V3.17h.83v.01l2.75.02.37.03-.05.37-.11.34-.17.31-.25.29-.32.25-.38.22-.44.18-.5.15-.57.13-.63.1-.7.07-.76.04-.83.01z"/>
-      </svg>
-    ),
-    react: (
-      <svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor">
-        <path d="M12 10.11c1.03 0 1.87.84 1.87 1.89S13.03 13.89 12 13.89s-1.87-.84-1.87-1.89.84-1.89 1.87-1.89M6.37 20c1.73 0 3.31-1.36 4.5-3.24-.56-.57-1.1-1.21-1.6-1.89-.75 1.37-1.6 2.58-2.5 3.13A1.6 1.6 0 016.37 20m0-16a1.6 1.6 0 011.4 1c.9.56 1.75 1.77 2.5 3.14.5-.68 1.04-1.32 1.6-1.89C10.54 4.64 8.96 4 7.25 4h-.88m12 16a1.6 1.6 0 01-1.4-1c-.9-.56-1.75-1.77-2.5-3.14.5-.68 1.04-1.32 1.6-1.89C18.96 15.36 20.54 16 22.25 16h.88m0-12h-.88c-1.73 0-3.31 1.36-4.5 3.24.56.57 1.1 1.21 1.6 1.89.75-1.37 1.6-2.58 2.5-3.13A1.6 1.6 0 0123.5 4m-23.5 8c0-4.09 3.56-7.44 8-8 4.44.56 8 3.91 8 8-.56 4.44-3.56 8-8 8-4.44-.56-8-3.91-8-8m20.5 8c4.44-.56 8-3.91 8-8-.56-4.44-3.56-8-8-8-4.44.56-8 3.91-8 8 .56 4.44 3.56 8 8 8"/>
-      </svg>
-    ),
-    next: (
-      <svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor">
-        <path d="M11.572 0c-.176 0-.31.001-.358.007a19.76 19.76 0 01-.364.033C7.443.346 4.25 2.185 2.228 5.012a11.875 11.875 0 00-2.119 5.243c-.096.659-.108.854-.108 1.747s.012 1.089.108 1.748c.652 4.506 3.86 8.292 8.209 9.695.779.25 1.6.422 2.534.525.363.04 1.935.04 2.299 0 1.611-.178 2.977-.577 4.323-1.264.207-.106.247-.134.219-.158-.02-.013-.9-1.193-1.955-2.62l-1.918-2.592-2.404-3.558a338.739 338.739 0 00-2.422-3.556c-.009-.002-.018 1.579-.023 3.51-.007 3.38-.01 3.515-.052 3.595a.426.426 0 01-.206.214c-.075.037-.14.044-.495.044H7.81l-.108-.068a.438.438 0 01-.157-.171l-.05-.106.006-4.703.007-4.705.072-.092a.645.645 0 01.174-.143c.096-.047.134-.051.54-.051.478 0 .558.018.682.154.035.038 1.337 1.999 2.895 4.361a10760.433 10760.433 0 004.735 7.17l1.902 2.795.096-.063a12.317 12.317 0 002.466-2.163 11.944 11.944 0 002.824-6.134c.096-.66.108-.854.108-1.748 0-.893-.012-1.088-.108-1.747-.652-4.506-3.859-8.292-8.208-9.695a12.597 12.597 0 00-2.499-.523A33.119 33.119 0 0011.572 0zm4.069 7.217c.347 0 .408.005.486.047a.473.473 0 01.237.277c.018.06.023 1.365.018 4.304l-.006 4.218-.744-1.14-.746-1.14v-3.066c0-1.982.01-3.097.023-3.15a.478.478 0 01.233-.296c.096-.05.13-.054.5-.054z"/>
-      </svg>
-    ),
-    vue: (
-      <svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor">
-        <path d="M24 1.61h-9.94L12 5.16 9.94 1.61H0l12 20.78L24 1.61zM12 14.08L5.16 2.23h4.43L12 6.41l2.41-4.18h4.43L12 14.08z"/>
-      </svg>
-    ),
-    node: (
-      <svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor">
-        <path d="M12 1.85c-.27 0-.55.07-.78.2l-7.44 4.3c-.48.28-.78.8-.78 1.36v8.58c0 .56.3 1.08.78 1.36l1.95 1.12.02-.01 5.5-3.18c.21-.12.46-.18.72-.18.26 0 .51.06.72.18l5.5 3.18.02.01 1.93-1.12c.48-.28.78-.8.78-1.36V7.71c0-.56-.3-1.08-.78-1.36l-7.44-4.3a1.66 1.66 0 00-.73-.2zm.05 1.83l6.67 3.85v7.94l-6.67-3.85V3.68zM5.28 7.53l6.67 3.85v7.94l-6.67-3.85V7.53z"/>
-      </svg>
-    ),
-    default: (
-      <svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor">
-        <circle cx="12" cy="12" r="10"/>
-      </svg>
-    ),
-  };
-  // Fallback to default if icon not found
-  const IconComponent = icons[id] || icons.default;
-  return IconComponent;
+    const icons = {
+        js: (
+            <svg
+                viewBox="0 0 24 24"
+                width={size}
+                height={size}
+                fill="currentColor"
+            >
+                <path d="M12.173 17.722c-.376.627-.789 1.114-1.601 1.114-.812 0-1.27-.41-1.27-1.053 0-.718.573-1.045 1.45-1.51l.366-.196c2.128-1.114 3.553-2.267 3.553-4.635 0-2.318-1.842-4.045-4.912-4.045-2.094 0-3.427.846-4.374 2.254l1.98 1.255c.441-.718.965-1.27 1.98-1.27.812 0 1.332.47 1.332 1.066 0 .683-.376 1.008-1.332 1.51l-.366.196c-2.365 1.24-3.692 2.443-3.692 4.66 0 2.618 2.052 4.213 5.013 4.213 2.268 0 3.603-.86 4.55-2.491l-2.139-1.341zM24 0H0v24h24V0z" />
+            </svg>
+        ),
+        ts: (
+            <svg
+                viewBox="0 0 24 24"
+                width={size}
+                height={size}
+                fill="currentColor"
+            >
+                <path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.649-.303 5.527 5.527 0 0 0-.85-.11 9.762 9.762 0 0 0-.782.03v2.538a21.41 21.41 0 0 1 .782.03 5.527 5.527 0 0 0 .85-.11 3.95 3.95 0 0 0 .649-.303v2.522a6.239 6.239 0 0 1-1.306.341c-.473.075-1.015.112-1.627.112V9.75zm-7.5 0c.539 0 1.03.036 1.474.11a5.899 5.899 0 0 1 1.199.341v2.458a4.2 4.2 0 0 0-.593-.304 5.07 5.07 0 0 0-.777-.11 8.701 8.701 0 0 0-.708.03v7.59h-2.55V12.274a8.44 8.44 0 0 0-.707-.03 5.07 5.07 0 0 0-.778.11 4.199 4.199 0 0 0-.592.304v-2.522a5.899 5.899 0 0 1 1.199-.341c.444-.074.935-.11 1.474-.11z" />
+            </svg>
+        ),
+        py: (
+            <svg
+                viewBox="0 0 24 24"
+                width={size}
+                height={size}
+                fill="currentColor"
+            >
+                <path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.07.07-.07-.17.06-.07h.17h8.15l.69-.05.59-.14.5-.21.4-.27.3-.32.2-.35.1-.35.06-.2.02-.1V3.17h.83v.01l2.75.02.37.03-.05.37-.11.34-.17.31-.25.29-.32.25-.38.22-.44.18-.5.15-.57.13-.63.1-.7.07-.76.04-.83.01z" />
+            </svg>
+        ),
+        react: (
+            <svg
+                viewBox="0 0 24 24"
+                width={size}
+                height={size}
+                fill="currentColor"
+            >
+                <path d="M12 10.11c1.03 0 1.87.84 1.87 1.89S13.03 13.89 12 13.89s-1.87-.84-1.87-1.89.84-1.89 1.87-1.89M6.37 20c1.73 0 3.31-1.36 4.5-3.24-.56-.57-1.1-1.21-1.6-1.89-.75 1.37-1.6 2.58-2.5 3.13A1.6 1.6 0 016.37 20m0-16a1.6 1.6 0 011.4 1c.9.56 1.75 1.77 2.5 3.14.5-.68 1.04-1.32 1.6-1.89C10.54 4.64 8.96 4 7.25 4h-.88m12 16a1.6 1.6 0 01-1.4-1c-.9-.56-1.75-1.77-2.5-3.14.5-.68 1.04-1.32 1.6-1.89C18.96 15.36 20.54 16 22.25 16h.88m0-12h-.88c-1.73 0-3.31 1.36-4.5 3.24.56.57 1.1 1.21 1.6 1.89.75-1.37 1.6-2.58 2.5-3.13A1.6 1.6 0 0123.5 4m-23.5 8c0-4.09 3.56-7.44 8-8 4.44.56 8 3.91 8 8-.56 4.44-3.56 8-8 8-4.44-.56-8-3.91-8-8m20.5 8c4.44-.56 8-3.91 8-8-.56-4.44-3.56-8-8-8-4.44.56-8 3.91-8 8 .56 4.44 3.56 8 8 8" />
+            </svg>
+        ),
+        next: (
+            <svg
+                viewBox="0 0 24 24"
+                width={size}
+                height={size}
+                fill="currentColor"
+            >
+                <path d="M11.572 0c-.176 0-.31.001-.358.007a19.76 19.76 0 01-.364.033C7.443.346 4.25 2.185 2.228 5.012a11.875 11.875 0 00-2.119 5.243c-.096.659-.108.854-.108 1.747s.012 1.089.108 1.748c.652 4.506 3.86 8.292 8.209 9.695.779.25 1.6.422 2.534.525.363.04 1.935.04 2.299 0 1.611-.178 2.977-.577 4.323-1.264.207-.106.247-.134.219-.158-.02-.013-.9-1.193-1.955-2.62l-1.918-2.592-2.404-3.558a338.739 338.739 0 00-2.422-3.556c-.009-.002-.018 1.579-.023 3.51-.007 3.38-.01 3.515-.052 3.595a.426.426 0 01-.206.214c-.075.037-.14.044-.495.044H7.81l-.108-.068a.438.438 0 01-.157-.171l-.05-.106.006-4.703.007-4.705.072-.092a.645.645 0 01.174-.143c.096-.047.134-.051.54-.051.478 0 .558.018.682.154.035.038 1.337 1.999 2.895 4.361a10760.433 10760.433 0 004.735 7.17l1.902 2.795.096-.063a12.317 12.317 0 002.466-2.163 11.944 11.944 0 002.824-6.134c.096-.66.108-.854.108-1.748 0-.893-.012-1.088-.108-1.747-.652-4.506-3.859-8.292-8.208-9.695a12.597 12.597 0 00-2.499-.523A33.119 33.119 0 0011.572 0zm4.069 7.217c.347 0 .408.005.486.047a.473.473 0 01.237.277c.018.06.023 1.365.018 4.304l-.006 4.218-.744-1.14-.746-1.14v-3.066c0-1.982.01-3.097.023-3.15a.478.478 0 01.233-.296c.096-.05.13-.054.5-.054z" />
+            </svg>
+        ),
+        vue: (
+            <svg
+                viewBox="0 0 24 24"
+                width={size}
+                height={size}
+                fill="currentColor"
+            >
+                <path d="M24 1.61h-9.94L12 5.16 9.94 1.61H0l12 20.78L24 1.61zM12 14.08L5.16 2.23h4.43L12 6.41l2.41-4.18h4.43L12 14.08z" />
+            </svg>
+        ),
+        node: (
+            <svg
+                viewBox="0 0 24 24"
+                width={size}
+                height={size}
+                fill="currentColor"
+            >
+                <path d="M12 1.85c-.27 0-.55.07-.78.2l-7.44 4.3c-.48.28-.78.8-.78 1.36v8.58c0 .56.3 1.08.78 1.36l1.95 1.12.02-.01 5.5-3.18c.21-.12.46-.18.72-.18.26 0 .51.06.72.18l5.5 3.18.02.01 1.93-1.12c.48-.28.78-.8.78-1.36V7.71c0-.56-.3-1.08-.78-1.36l-7.44-4.3a1.66 1.66 0 00-.73-.2zm.05 1.83l6.67 3.85v7.94l-6.67-3.85V3.68zM5.28 7.53l6.67 3.85v7.94l-6.67-3.85V7.53z" />
+            </svg>
+        ),
+        default: (
+            <svg
+                viewBox="0 0 24 24"
+                width={size}
+                height={size}
+                fill="currentColor"
+            >
+                <circle cx="12" cy="12" r="10" />
+            </svg>
+        ),
+    };
+    // Fallback to default if icon not found
+    const IconComponent = icons[id] || icons.default;
+    return IconComponent;
 };
 
 /* ─────────────────────────────────
    Main Component
 ───────────────────────────────── */
 export default function StackPageClient({
-  initialTechStack,
-  initialGoals,
-  initialLearning,
-  isPro,
+    initialTechStack,
+    initialGoals,
+    initialLearning,
+    isPro,
 }) {
-  const [techStack, setTechStack] = useState(initialTechStack);
-  const [goals, setGoals] = useState(initialGoals);
-  const [learning, setLearning] = useState(initialLearning);
+    const [techStack, setTechStack] = useState(initialTechStack);
+    const [goals, setGoals] = useState(initialGoals);
+    const [learning, setLearning] = useState(initialLearning);
 
-  const [searchQuery, setSearchQuery] = useState("");
-  const [filterCategory, setFilterCategory] = useState("all");
-  const [showIconPicker, setShowIconPicker] = useState(false);
-  const [newTechCategory, setNewTechCategory] = useState("language");
-  const [newGoalTitle, setNewGoalTitle] = useState("");
-  const [newGoalDate, setNewGoalDate] = useState("");
-  const [newLearnTitle, setNewLearnTitle] = useState("");
-  const [newLearnUrl, setNewLearnUrl] = useState("");
+    const [searchQuery, setSearchQuery] = useState("");
+    const [filterCategory, setFilterCategory] = useState("all");
+    const [showIconPicker, setShowIconPicker] = useState(false);
+    const [newTechCategory, setNewTechCategory] = useState("language");
+    const [newGoalTitle, setNewGoalTitle] = useState("");
+    const [newGoalDate, setNewGoalDate] = useState("");
+    const [newLearnTitle, setNewLearnTitle] = useState("");
+    const [newLearnUrl, setNewLearnUrl] = useState("");
 
-  // Filter and search icons
-  const filteredIcons = TECH_ICONS.filter(icon => {
-    const matchesSearch = icon.name.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesCategory = filterCategory === "all" || icon.category === filterCategory;
-    return matchesSearch && matchesCategory;
-  });
-
-  // Check if tech is already selected
-  const isTechSelected = (techId) => {
-    return techStack.some(t => t.name === techId || t.id === techId);
-  };
-
-  /* ── Tech Stack ── */
-  async function addTech(techItem) {
-    // Check if already exists
-    if (isTechSelected(techItem.id)) return;
-    
-    const res = await fetch("/api/stack", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: techItem.id,
-        category: techItem.category,
-        color: techItem.color,
-        icon: techItem.icon,
-        displayName: techItem.name,
-      }),
+    // Filter and search icons
+    const filteredIcons = TECH_ICONS.filter((icon) => {
+        const matchesSearch = icon.name
+            .toLowerCase()
+            .includes(searchQuery.toLowerCase());
+        const matchesCategory =
+            filterCategory === "all" || icon.category === filterCategory;
+        return matchesSearch && matchesCategory;
     });
-    const item = await res.json();
-    setTechStack([...techStack, item]);
-  }
+
+    // Check if tech is already selected
+    const isTechSelected = (techId) => {
+        return techStack.some((t) => t.name === techId || t.id === techId);
+    };
+
+    /* ── Tech Stack ── */
+    async function addTech(techItem) {
+        // Check if already exists
+        if (isTechSelected(techItem.id)) return;
+
+        const res = await fetch("/api/stack", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                name: techItem.id,
+                category: techItem.category,
+                color: techItem.color,
+                icon: techItem.icon,
+                displayName: techItem.name,
+            }),
+        });
+        const item = await res.json();
+        setTechStack([...techStack, item]);
+    }
 
     async function deleteTech(id) {
         if (!confirm("Delete this tech item?")) return;
@@ -736,187 +1037,242 @@ export default function StackPageClient({
                         TECH STACK
                     ══════════════════════════════════════ */}
                     <section className="sp-section">
-                      <div className="sp-section-header">
-                        <h2 className="sp-section-title">Tech Stack</h2>
-                      </div>
-
-                      {/* Add tech button */}
-                      <div className="sp-form-card">
-                        <button
-                          className="sp-btn-primary w-full"
-                          onClick={() => setShowIconPicker(!showIconPicker)}
-                        >
-                          <IconPlus /> {showIconPicker ? "Hide Icon Picker" : "Add Technology"}
-                        </button>
-
-                        {/* Icon picker */}
-                        {showIconPicker && (
-                          <div className="mt-4">
-                            {/* Search and filter */}
-                            <div className="sp-form-row mb-4">
-                              <input
-                                type="text"
-                                className="sp-input flex-1"
-                                placeholder="Search technologies…"
-                                value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
-                              />
-                              <select
-                                className="sp-select"
-                                value={filterCategory}
-                                onChange={(e) => setFilterCategory(e.target.value)}
-                              >
-                                <option value="all">All Categories</option>
-                                {CATEGORIES.map((c) => (
-                                  <option key={c} value={c}>
-                                    {c.charAt(0).toUpperCase() + c.slice(1)}
-                                  </option>
-                                ))}
-                              </select>
-                            </div>
-
-                            {/* Icons grid */}
-                            <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-3">
-                              {filteredIcons.map((tech) => {
-                                const selected = isTechSelected(tech.id);
-                                return (
-                                  <button
-                                    key={tech.id}
-                                    onClick={() => !selected && addTech(tech)}
-                                    disabled={selected}
-                                    className={`p-3 rounded-xl transition-all flex flex-col items-center gap-2 ${
-                                      selected 
-                                        ? "opacity-40 cursor-not-allowed" 
-                                        : "hover:scale-105 cursor-pointer"
-                                    }`}
-                                    style={{
-                                      background: "var(--surface-2)",
-                                      border: selected 
-                                        ? "2px solid var(--ink-muted)" 
-                                        : "1px solid var(--hairline)",
-                                    }}
-                                  >
-                                    <div
-                                      className="w-12 h-12 rounded-lg flex items-center justify-center"
-                                      style={{ color: tech.color }}
-                                    >
-                                      <StackIcon name={tech.id} dark />
-                                    </div>
-                                    <span
-                                      className="text-xs text-center"
-                                      style={{ color: "var(--ink)" }}
-                                    >
-                                      {tech.name}
-                                    </span>
-                                    {selected && (
-                                      <span
-                                        className="text-xs"
-                                        style={{ color: "var(--ink-muted)" }}
-                                      >
-                                        Added
-                                      </span>
-                                    )}
-                                  </button>
-                                );
-                              })}
-                            </div>
-
-                            {filteredIcons.length === 0 && (
-                              <div className="sp-empty">
-                                No technologies match your search.
-                              </div>
-                            )}
-                          </div>
-                        )}
-                      </div>
-
-                      {/* Tech stack display */}
-                      {Object.keys(groupedTech).length === 0 ? (
-                        <div className="sp-empty">
-                          No tech added yet — click <span className="text-primary">Add Technology</span> to start building your stack.
+                        <div className="sp-section-header">
+                            <h2 className="sp-section-title">Tech Stack</h2>
                         </div>
-                      ) : (
-                        Object.entries(groupedTech).map(
-                          ([category, items]) => (
-                            <div key={category}>
-                              <p className="sp-category-label">
-                                {category.charAt(0).toUpperCase() +
-                                  category.slice(1)}
-                              </p>
-                              <div className="sp-pills-wrap">
-                                {items.map((item, index) => {
-                                  // Find the tech icon data
-                                  const techData = TECH_ICONS.find(t => t.id === item.name || t.name === item.name);
-                                  const displayName = techData?.name || item.displayName || item.name;
-                                  const color = techData?.color || item.color || "#fff";
-                                  const iconId = techData?.icon || item.icon || "default";
-                                  
-                                  return (
-                                    <div
-                                      key={item._id}
-                                      className="sp-tech-pill"
-                                    >
-                                      <div
-                                        className="w-6 h-6 rounded flex items-center justify-center mr-2"
-                                        style={{ color }}
-                                      >
-                                        <StackIcon name={item.name} dark />
-                                      </div>
-                                      <span>{displayName}</span>
-                                      <div className="sp-tech-pill-actions">
-                                        <button
-                                          className="sp-btn-icon"
-                                          title="Move up"
-                                          disabled={
-                                            index === 0
-                                          }
-                                          onClick={() =>
-                                            reorderTech(
-                                              category,
-                                              item._id,
-                                              "up",
-                                            )
-                                          }
+
+                        {/* Add tech button */}
+                        <div className="sp-form-card">
+                            <button
+                                className="sp-btn-primary w-full"
+                                onClick={() =>
+                                    setShowIconPicker(!showIconPicker)
+                                }
+                            >
+                                <IconPlus />{" "}
+                                {showIconPicker
+                                    ? "Hide Icon Picker"
+                                    : "Add Technology"}
+                            </button>
+
+                            {/* Icon picker */}
+                            {showIconPicker && (
+                                <div className="mt-4">
+                                    {/* Search and filter */}
+                                    <div className="sp-form-row mb-4">
+                                        <input
+                                            type="text"
+                                            className="sp-input flex-1"
+                                            placeholder="Search technologies…"
+                                            value={searchQuery}
+                                            onChange={(e) =>
+                                                setSearchQuery(e.target.value)
+                                            }
+                                        />
+                                        <select
+                                            className="sp-select"
+                                            value={filterCategory}
+                                            onChange={(e) =>
+                                                setFilterCategory(
+                                                    e.target.value,
+                                                )
+                                            }
                                         >
-                                          ↑
-                                        </button>
-                                        <button
-                                          className="sp-btn-icon"
-                                          title="Move down"
-                                          disabled={
-                                            index ===
-                                            items.length - 1
-                                          }
-                                          onClick={() =>
-                                            reorderTech(
-                                              category,
-                                              item._id,
-                                              "down",
-                                            )
-                                          }
-                                        >
-                                          ↓
-                                        </button>
-                                        <button
-                                          className="sp-btn-icon sp-btn-icon-danger"
-                                          title="Remove"
-                                          onClick={() =>
-                                            deleteTech(
-                                              item._id,
-                                            )
-                                          }
-                                        >
-                                          ×
-                                        </button>
-                                      </div>
+                                            <option value="all">
+                                                All Categories
+                                            </option>
+                                            {CATEGORIES.map((c) => (
+                                                <option key={c} value={c}>
+                                                    {c.charAt(0).toUpperCase() +
+                                                        c.slice(1)}
+                                                </option>
+                                            ))}
+                                        </select>
                                     </div>
-                                  );
-                                })}
-                              </div>
+
+                                    {/* Icons grid */}
+                                    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-6 gap-3">
+                                        {filteredIcons.map((tech) => {
+                                            const selected = isTechSelected(
+                                                tech.id,
+                                            );
+                                            return (
+                                                <button
+                                                    key={tech.id}
+                                                    onClick={() =>
+                                                        !selected &&
+                                                        addTech(tech)
+                                                    }
+                                                    disabled={selected}
+                                                    className={`p-3 rounded-xl transition-all flex flex-col items-center gap-2 ${
+                                                        selected
+                                                            ? "opacity-40 cursor-not-allowed"
+                                                            : "hover:scale-105 cursor-pointer"
+                                                    }`}
+                                                    style={{
+                                                        background:
+                                                            "var(--surface-2)",
+                                                        border: selected
+                                                            ? "2px solid var(--ink-muted)"
+                                                            : "1px solid var(--hairline)",
+                                                    }}
+                                                >
+                                                    <div
+                                                        className="w-12 h-12 rounded-lg flex items-center justify-center"
+                                                        style={{
+                                                            color: tech.color,
+                                                        }}
+                                                    >
+                                                        <StackIcon
+                                                            name={tech.id}
+                                                            dark
+                                                        />
+                                                    </div>
+                                                    <span
+                                                        className="text-xs text-center"
+                                                        style={{
+                                                            color: "var(--ink)",
+                                                        }}
+                                                    >
+                                                        {tech.name}
+                                                    </span>
+                                                    {selected && (
+                                                        <span
+                                                            className="text-xs"
+                                                            style={{
+                                                                color: "var(--ink-muted)",
+                                                            }}
+                                                        >
+                                                            Added
+                                                        </span>
+                                                    )}
+                                                </button>
+                                            );
+                                        })}
+                                    </div>
+
+                                    {filteredIcons.length === 0 && (
+                                        <div className="sp-empty">
+                                            No technologies match your search.
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Tech stack display */}
+                        {Object.keys(groupedTech).length === 0 ? (
+                            <div className="sp-empty">
+                                No tech added yet — click{" "}
+                                <span className="text-primary">
+                                    Add Technology
+                                </span>{" "}
+                                to start building your stack.
                             </div>
-                          ),
-                        )
-                      )}
+                        ) : (
+                            Object.entries(groupedTech).map(
+                                ([category, items]) => (
+                                    <div key={category}>
+                                        <p className="sp-category-label">
+                                            {category.charAt(0).toUpperCase() +
+                                                category.slice(1)}
+                                        </p>
+                                        <div className="sp-pills-wrap">
+                                            {items.map((item, index) => {
+                                                // Find the tech icon data
+                                                const techData =
+                                                    TECH_ICONS.find(
+                                                        (t) =>
+                                                            t.id ===
+                                                                item.name ||
+                                                            t.name ===
+                                                                item.name,
+                                                    );
+                                                const displayName =
+                                                    techData?.name ||
+                                                    item.displayName ||
+                                                    item.name;
+                                                const color =
+                                                    techData?.color ||
+                                                    item.color ||
+                                                    "#fff";
+                                                const iconId =
+                                                    techData?.icon ||
+                                                    item.icon ||
+                                                    "default";
+
+                                                return (
+                                                    <div
+                                                        key={item._id}
+                                                        className="sp-tech-pill"
+                                                    >
+                                                        <div
+                                                            className="w-6 h-6 rounded flex items-center justify-center mr-2"
+                                                            style={{ color }}
+                                                        >
+                                                            <StackIcon
+                                                                name={item.name}
+                                                                dark
+                                                            />
+                                                        </div>
+                                                        <span>
+                                                            {displayName}
+                                                        </span>
+                                                        <div className="sp-tech-pill-actions">
+                                                            <button
+                                                                className="sp-btn-icon"
+                                                                title="Move up"
+                                                                disabled={
+                                                                    index === 0
+                                                                }
+                                                                onClick={() =>
+                                                                    reorderTech(
+                                                                        category,
+                                                                        item._id,
+                                                                        "up",
+                                                                    )
+                                                                }
+                                                            >
+                                                                ↑
+                                                            </button>
+                                                            <button
+                                                                className="sp-btn-icon"
+                                                                title="Move down"
+                                                                disabled={
+                                                                    index ===
+                                                                    items.length -
+                                                                        1
+                                                                }
+                                                                onClick={() =>
+                                                                    reorderTech(
+                                                                        category,
+                                                                        item._id,
+                                                                        "down",
+                                                                    )
+                                                                }
+                                                            >
+                                                                ↓
+                                                            </button>
+                                                            <button
+                                                                className="sp-btn-icon sp-btn-icon-danger"
+                                                                title="Remove"
+                                                                onClick={() =>
+                                                                    deleteTech(
+                                                                        item._id,
+                                                                    )
+                                                                }
+                                                            >
+                                                                ×
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
+                                ),
+                            )
+                        )}
                     </section>
 
                     <hr className="sp-divider" />
