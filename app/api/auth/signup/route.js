@@ -40,9 +40,14 @@ export async function POST(request) {
             { status: 201 },
         );
     } catch (error) {
-        console.error("Sign-up error:", error);
+        console.error("Sign-up error details:", {
+            message: error.message,
+            stack: error.stack,
+            name: error.name,
+            code: error.code,
+        });
         return NextResponse.json(
-            { error: "Internal server error" },
+            { error: "Internal server error", details: error.message },
             { status: 500 },
         );
     }

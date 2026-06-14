@@ -6,7 +6,11 @@ const UserSchema = new mongoose.Schema(
         email: { type: String, unique: true, required: true },
         password: String,
         image: String,
-        username: { type: String, unique: true },
+        username: { 
+            type: String, 
+            unique: true, 
+            sparse: true // This allows multiple null/undefined values
+        },
         tagline: String,
         bio: { type: String, maxlength: 200 },
         avatarUrl: String,
