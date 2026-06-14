@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { auth } from "@/auth";
 import WaveBackground from "../components/ui/WaveBackground";
 import HeroButton from "@/components/aura/heroButton";
+import PricingCard from "@/components/aura/heroPricingCard";
 
 const plusJakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 const inter = Inter({ subsets: ["latin"] });
@@ -666,135 +667,7 @@ export default async function Home() {
                                     backgroundColor: "var(--color-surface-2)",
                                 }}
                             >
-                                <div className="relative z-10">
-                                    <div className="mb-6">
-                                        <div className="flex items-center gap-2 mb-2">
-                                            <h3
-                                                className={`${plusJakarta.className} text-2xl font-semibold`}
-                                                style={{
-                                                    color: "var(--color-ink)",
-                                                }}
-                                            >
-                                                Pro
-                                            </h3>
-                                            <span
-                                                className="text-xs px-2 py-0.5 rounded-full"
-                                                style={{
-                                                    backgroundColor:
-                                                        "var(--color-surface-1)",
-                                                    color: "var(--color-ink)",
-                                                }}
-                                            >
-                                                Most popular
-                                            </span>
-                                        </div>
-                                        <p
-                                            style={{
-                                                color: "var(--color-ink-muted)",
-                                            }}
-                                        >
-                                            For serious builders
-                                        </p>
-                                        <div className="mt-4 flex items-baseline gap-1">
-                                            <span
-                                                className={`${plusJakarta.className} text-4xl font-bold`}
-                                                style={{
-                                                    color: "var(--color-ink)",
-                                                }}
-                                            >
-                                                $5
-                                            </span>
-                                            <span
-                                                style={{
-                                                    color: "var(--color-ink-muted)",
-                                                }}
-                                            >
-                                                /month
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <ul className="space-y-3 mb-8">
-                                        <li
-                                            className="flex items-center gap-3"
-                                            style={{
-                                                color: "var(--color-ink)",
-                                            }}
-                                        >
-                                            <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center shrink-0">
-                                                <div
-                                                    className="w-3 h-3 rounded-full"
-                                                    style={{
-                                                        backgroundColor:
-                                                            "var(--color-ink)",
-                                                    }}
-                                                />
-                                            </div>
-                                            Unlimited projects
-                                        </li>
-                                        <li
-                                            className="flex items-center gap-3"
-                                            style={{
-                                                color: "var(--color-ink)",
-                                            }}
-                                        >
-                                            <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center shrink-0">
-                                                <div
-                                                    className="w-3 h-3 rounded-full"
-                                                    style={{
-                                                        backgroundColor:
-                                                            "var(--color-ink)",
-                                                    }}
-                                                />
-                                            </div>
-                                            Custom domain
-                                        </li>
-                                        <li
-                                            className="flex items-center gap-3"
-                                            style={{
-                                                color: "var(--color-ink)",
-                                            }}
-                                        >
-                                            <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center shrink-0">
-                                                <div
-                                                    className="w-3 h-3 rounded-full"
-                                                    style={{
-                                                        backgroundColor:
-                                                            "var(--color-ink)",
-                                                    }}
-                                                />
-                                            </div>
-                                            Profile analytics
-                                        </li>
-                                        <li
-                                            className="flex items-center gap-3"
-                                            style={{
-                                                color: "var(--color-ink)",
-                                            }}
-                                        >
-                                            <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center shrink-0">
-                                                <div
-                                                    className="w-3 h-3 rounded-full"
-                                                    style={{
-                                                        backgroundColor:
-                                                            "var(--color-ink)",
-                                                    }}
-                                                />
-                                            </div>
-                                            Priority support
-                                        </li>
-                                    </ul>
-                                    <Link
-                                        href="/dashboard/billing"
-                                        className="w-full py-3 px-4 rounded-full text-center font-semibold transition-opacity hover:opacity-90"
-                                        style={{
-                                            backgroundColor:
-                                                "var(--color-primary)",
-                                            color: "var(--color-canvas)",
-                                        }}
-                                    >
-                                        Upgrade to Pro
-                                    </Link>
-                                </div>
+                                <PricingCard />
                             </div>
                         </div>
                     </div>
