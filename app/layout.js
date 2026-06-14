@@ -68,7 +68,7 @@ export const metadata = {
         images: ["https://shiplog.usersynax.dev/shiplog.png"],
     },
     verification: {
-        
+        google: "mtSQQTLUoP5DvYa7RCE6CnrEoUYfmWX0FdkkYzDO8Po",
     },
     manifest: "/manifest.json",
     icons: {
