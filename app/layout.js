@@ -13,19 +13,29 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata = {
-    title: "Shiplog | Developer Identity Platform",
+    title: {
+        default: "Shiplog | Developer Identity Platform",
+        template: "%s | Shiplog",
+    },
     description:
-        "Developer identity platform for building your professional profile. Showcase projects, track daily build logs, and maintain a streak — all in one beautiful public profile.",
+        "Shiplog is the developer identity platform for building your professional portfolio. Showcase projects, track daily build logs, maintain coding streaks, and share your journey with a beautiful public profile.",
     keywords: [
         "developer portfolio",
         "build logs",
         "developer profile",
         "coding streak",
         "project showcase",
+        "developer identity",
+        "programming portfolio",
+        "software developer portfolio",
+        "daily coding",
+        "developer website",
+        "coding portfolio",
     ],
     authors: [{ name: "Shiplog" }],
     creator: "Shiplog",
     publisher: "Shiplog",
+    robots: "index, follow",
     formatDetection: {
         telephone: false,
         address: false,
@@ -38,10 +48,10 @@ export const metadata = {
         siteName: "Shiplog",
         title: "Shiplog | Developer Identity Platform",
         description:
-            "Developer identity platform for building your professional profile. Showcase projects, track daily build logs, and maintain a streak — all in one beautiful public profile.",
+            "Shiplog is the developer identity platform for building your professional portfolio. Showcase projects, track daily build logs, maintain coding streaks, and share your journey with a beautiful public profile.",
         images: [
             {
-                url: "/shiplog.png",
+                url: "https://shiplog.usersynax.dev/shiplog.png",
                 width: 1200,
                 height: 630,
                 alt: "Shiplog - Developer Identity Platform",
@@ -54,13 +64,18 @@ export const metadata = {
         creator: "@shiplog",
         title: "Shiplog | Developer Identity Platform",
         description:
-            "Developer identity platform for building your professional profile. Showcase projects, track daily build logs, and maintain a streak — all in one beautiful public profile.",
-        images: ["/shiplog.png"],
+            "Shiplog is the developer identity platform for building your professional portfolio. Showcase projects, track daily build logs, maintain coding streaks, and share your journey.",
+        images: ["https://shiplog.usersynax.dev/shiplog.png"],
     },
+    verification: {
+        
+    },
+    manifest: "/manifest.json",
     icons: {
         icon: [
             { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
             { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+            { url: "/favicon.ico", sizes: "any", type: "image/x-icon" },
         ],
         apple: [
             {
@@ -84,7 +99,42 @@ export const metadata = {
             },
         ],
     },
+    alternates: {
+        canonical: "https://shiplog.usersynax.dev",
+    },
 };
+
+// Structured Data JSON-LD component
+function StructuredData() {
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: "Shiplog",
+        url: "https://shiplog.usersynax.dev",
+        description:
+            "Developer identity platform for building your professional portfolio. Showcase projects, track daily build logs, maintain coding streaks.",
+        potentialAction: {
+            "@type": "SearchAction",
+            target: "https://shiplog.usersynax.dev/{search_term_string}",
+            "query-input": "required name=search_term_string",
+        },
+        publisher: {
+            "@type": "Organization",
+            name: "Shiplog",
+            logo: {
+                "@type": "ImageObject",
+                url: "https://shiplog.usersynax.dev/shiplog.png",
+            },
+        },
+    };
+
+    return (
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+    );
+}
 
 export default function RootLayout({ children }) {
     return (
@@ -92,6 +142,9 @@ export default function RootLayout({ children }) {
             lang="en"
             className={`${giestSansInter.variable} ${plusJakartaSans.variable}`}
         >
+            <head>
+                <StructuredData />
+            </head>
             <body className="min-h-screen">
                 <SessionProvider>{children}</SessionProvider>
             </body>
