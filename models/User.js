@@ -9,7 +9,7 @@ const UserSchema = new mongoose.Schema(
         username: { 
             type: String, 
             unique: true, 
-            sparse: true // This allows multiple null/undefined values
+            sparse: true
         },
         tagline: String,
         bio: { type: String, maxlength: 200 },
@@ -46,6 +46,15 @@ const UserSchema = new mongoose.Schema(
         totalLogs: { type: Number, default: 0 },
         resumeUrl: String,
         isProfilePublic: { type: Boolean, default: true },
+        github: {
+            connected: { type: Boolean, default: false },
+            username: String,
+            accessToken: String,
+            refreshToken: String,
+            tokenExpiresAt: Date,
+            userId: String,
+            avatarUrl: String,
+        },
     },
     { timestamps: true },
 );
